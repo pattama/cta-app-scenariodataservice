@@ -1,6 +1,9 @@
-Scenario Data Service Application Program Interface
+# Scenario DataService for Compass Test Automation
+[Readme](README.md) | [Rest API](RESTAPI.md) | [DataModel](DATAMODEL.md) | [DataContract](DATACONTRACT.md) | [Document](DOCUMENTATION.md)  
 
-Rest API
+##Application Program Interface
+
+**Rest API**
 
 Create a Scenario
 Request 
@@ -8,7 +11,7 @@ Request
 - /scenarios
 	- GET : returns all scenarios from current user and his groups
 	    returns
-	     - 200, [scenarios](DATAMODEL.md) 
+	     - 200, [scenarios](DATAMODEL.md#Scenario) 
 	     - 400, not found 
 	     - 401, not found for a user
 	- POST : creates the scenario and returns the updated scenario or 400 if incorrect scenario or 401
