@@ -5,7 +5,7 @@
   "author": "CTA Team <cta@thomsonreuters.com>",
   "main": "lib/index.js",
   "scripts": {
-    "test": "_mocha test/index.js",
+    "test": "_mocha",
     "codecoverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec && opener ./coverage/lcov-report/index.html",
     "docs": "jsdoc2md \"lib/**/*.js\" > DOCUMENTATION.md && jsdoc --readme README.md lib -r -d docs && opener ./docs/index.html"
   },
@@ -42,7 +42,10 @@
     "cta-expresswrapper": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-expresswrapper.git",
     "cta-io": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-io.git#brick",
     "cta-messaging": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-messaging.git",
-    "cta-dblayer": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-dblayer.git"
+    "cta-dblayer": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-dblayer.git",
+    "lodash": "^4.14.1",
+    "bson": "^0.5.2"
   },
   "license": "Apache-2.0"
+
 }
