@@ -1,9 +1,12 @@
+# Scenario DataService for Compass Test Automation
+[Readme](./../README.md) | [Rest API](RESTAPI.md) | [DataModel](DATAMODEL.md) | [DataContract](DATACONTRACT.md) | [Document](DOCUMENTATION.md)
+
 <a name="ScenariosHandler"></a>
 
 ## ScenariosHandler
 Handler class for RESTAPI handlers : RESULTS
 
-**Kind**: global class  
+**Kind**: global class
 **Properties**
 
 | Name | Type | Description |
@@ -26,10 +29,10 @@ Handler class for RESTAPI handlers : RESULTS
 <a name="ScenariosHandler+getScenario"></a>
 
 ### scenariosHandler.getScenario(req, res) ⇒ <code>string</code>
-**Kind**: instance method of <code>[ScenariosHandler](#ScenariosHandler)</code>  
+**Kind**: instance method of <code>[ScenariosHandler](#ScenariosHandler)</code>
 
 | Param |
 | --- |
-| req | 
-| res | 
+| req |
+| res |
 
