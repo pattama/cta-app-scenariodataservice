@@ -7,7 +7,8 @@
   "scripts": {
     "test": "_mocha",
     "codecoverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec && opener ./coverage/lcov-report/index.html",
-    "docs": "jsdoc2md \"lib/**/*.js\" > ./docs/DOCUMENTATION.md && jsdoc --readme README.md lib -r -d docs && opener ./docs/index.html"
+    "docs": "jsdoc2md \"lib/**/*.js\" > ./docs/DOCUMENTATION.md && jsdoc --readme README.md lib -r -d docs && opener ./docs/index.html",
+    "eslint": "eslint lib test"
   },
   "repository": {
     "type": "git",

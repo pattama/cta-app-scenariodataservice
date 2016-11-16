@@ -4,11 +4,10 @@ const sinon = require('sinon');
 const _ = require('lodash');
 const nodepath = require('path');
 const ObjectID = require('bson').ObjectID;
-
 const EventEmitter = require('events');
 const Logger = require('cta-logger');
-const Handler = require(nodepath.join(appRootPath,
-  '/lib/utils/restapi/handlers/', 'scenarios.js'));
+
+const Handler = require(nodepath.join(appRootPath, '/lib/utils/restapi/handlers/', 'scenarios.js'));
 
 const DEFAULTLOGGER = new Logger();
 const DEFAULTCEMENTHELPER = {
@@ -19,28 +18,27 @@ const DEFAULTCEMENTHELPER = {
   logger: DEFAULTLOGGER,
   dependencies: {
   },
-  createContext: function() {},
+  createContext: () => {},
 };
 const SCENARIO = require('./scenarios.update.test.data.json');
 
-describe('Utils - RESTAPI - Handlers - scenarios - update', function() {
+describe('Utils - RESTAPI - Handlers - scenarios - update', () => {
   let handler;
-  before(function() {
+  before(() => {
     handler = new Handler(DEFAULTCEMENTHELPER);
   });
 
-  context('when id is provided (update)', function() {
+  context('when id is provided (update)', () => {
     const req = {};
     const res = {
-      status: function () {
+      status() {
         return this;
       },
-      send: function () {
-      },
+      send() {},
     };
     let data;
     let mockContext;
-    before(function () {
+    before(() => {
       req.body = _.cloneDeep(SCENARIO);
       req.params = {
         id: (new ObjectID()).toString(),
@@ -59,26 +57,26 @@ describe('Utils - RESTAPI - Handlers - scenarios - update', function() {
         .withArgs(data)
         .returns(mockContext);
     });
-    after(function () {
+    after(() => {
       handler.cementHelper.createContext.restore();
     });
-    it('should send a new Context', function () {
+    it('should send a new Context', () => {
       handler.update(req, res, null);
       sinon.assert.calledWith(handler.cementHelper.createContext, data);
       sinon.assert.called(mockContext.publish);
     });
 
-    context('when Context emits error event', function() {
-      before(function() {
+    context('when Context emits error event', () => {
+      before(() => {
         sinon.spy(res, 'status');
         sinon.spy(res, 'send');
         handler.update(req, res, null);
       });
-      after(function() {
+      after(() => {
         res.status.restore();
         res.send.restore();
       });
-      it('should send the error message', function () {
+      it('should send the error message', () => {
         const error = new Error('mockError');
         const mockBrickname = 'businesslogic';
         mockContext.emit('error', mockBrickname, error);
@@ -87,17 +85,17 @@ describe('Utils - RESTAPI - Handlers - scenarios - update', function() {
       });
     });
 
-    context('when Context emits reject event', function() {
-      before(function() {
+    context('when Context emits reject event', () => {
+      before(() => {
         sinon.spy(res, 'status');
         sinon.spy(res, 'send');
         handler.update(req, res, null);
       });
-      after(function() {
+      after(() => {
         res.status.restore();
         res.send.restore();
       });
-      it('should send the error message', function () {
+      it('should send the error message', () => {
         const error = new Error('mockError');
         const mockBrickname = 'businesslogic';
         mockContext.emit('reject', mockBrickname, error);
@@ -106,15 +104,15 @@ describe('Utils - RESTAPI - Handlers - scenarios - update', function() {
       });
     });
 
-    context('when document is found', function() {
-      before(function() {
+    context('when document is found', () => {
+      before(() => {
         sinon.spy(res, 'send');
         handler.update(req, res, null);
       });
-      after(function() {
+      after(() => {
         res.send.restore();
       });
-      it('should send the found Object (res.send())', function() {
+      it('should send the found Object (res.send())', () => {
         const mockBrickname = 'businesslogic';
         const response = { id: req.body.id };
         mockContext.emit('done', mockBrickname, response);
@@ -122,17 +120,17 @@ describe('Utils - RESTAPI - Handlers - scenarios - update', function() {
       });
     });
 
-    context('when document is not found', function() {
-      before(function() {
+    context('when document is not found', () => {
+      before(() => {
         sinon.spy(res, 'status');
         sinon.spy(res, 'send');
         handler.update(req, res, null);
       });
-      after(function() {
+      after(() => {
         res.status.restore();
         res.send.restore();
       });
-      it('should send 404', function() {
+      it('should send 404', () => {
         const mockBrickname = 'businesslogic';
         const response = null;
         mockContext.emit('done', mockBrickname, response);
