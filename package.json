@@ -8,7 +8,7 @@
     "test": "_mocha",
     "codecoverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec && opener ./coverage/lcov-report/index.html",
     "docs": "jsdoc2md \"lib/**/*.js\" > ./docs/DOCUMENTATION.md && jsdoc --readme README.md lib -r -d docs && opener ./docs/index.html",
-    "eslint": "eslint lib test"
+    "lint": "eslint lib test"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,6 @@
     "node": ">=4.2.2"
   },
   "devDependencies": {
-    "app-root-path": "^1.3.0",
     "chai": "~3.4.0",
     "chai-as-promised": "^5.3.0",
     "eslint": "^3.2.2",
@@ -30,7 +29,6 @@
     "mock-require": "^1.3.0",
     "opener": "~1.4.0",
     "require-subvert": "^0.1.0",
-    "sinon": "^1.17.5",
     "sinon-as-promised": "^4.0.2"
   },
   "dependencies": {
@@ -45,7 +43,10 @@
     "cta-messaging": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-messaging.git",
     "cta-dblayer": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-dblayer.git",
     "lodash": "^4.14.1",
-    "bson": "^0.5.2"
+    "bson": "^0.5.2",
+    "app-root-path": "^1.3.0",
+    "sinon": "^1.17.5"
+
   },
   "license": "Apache-2.0"
 

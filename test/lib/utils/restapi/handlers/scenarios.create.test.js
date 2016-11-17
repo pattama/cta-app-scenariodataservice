@@ -4,7 +4,6 @@ const sinon = require('sinon');
 const _ = require('lodash');
 const nodepath = require('path');
 const EventEmitter = require('events');
-const Logger = require('cta-logger');
 
 const Handler = require(nodepath.join(appRootPath, '/lib/utils/restapi/handlers/', 'scenarios.js'));
 

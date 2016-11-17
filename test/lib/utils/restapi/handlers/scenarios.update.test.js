@@ -5,7 +5,6 @@ const _ = require('lodash');
 const nodepath = require('path');
 const ObjectID = require('bson').ObjectID;
 const EventEmitter = require('events');
-const Logger = require('cta-logger');
 
 const Handler = require(nodepath.join(appRootPath, '/lib/utils/restapi/handlers/', 'scenarios.js'));
 
