@@ -9,13 +9,11 @@ const Logger = require('cta-logger');
 
 const Handler = require(nodepath.join(appRootPath, '/lib/utils/restapi/handlers/', 'scenarios.js'));
 
-const DEFAULTLOGGER = new Logger();
 const DEFAULTCEMENTHELPER = {
   constructor: {
     name: 'CementHelper',
   },
   brickName: 'restapi',
-  logger: DEFAULTLOGGER,
   dependencies: {
   },
   createContext: () => {},
