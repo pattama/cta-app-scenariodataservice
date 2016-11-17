@@ -1,11 +1,10 @@
 'use strict';
-const appRootPath = require('app-root-path').path;
+
 const sinon = require('sinon');
 const _ = require('lodash');
-const nodepath = require('path');
 const EventEmitter = require('events');
 
-const Handler = require(nodepath.join(appRootPath, '/lib/utils/restapi/handlers/', 'scenarios.js'));
+const Handler = require('../../../../../lib/utils/restapi/handlers/scenarios.js');
 
 const DEFAULTCEMENTHELPER = {
   constructor: {
