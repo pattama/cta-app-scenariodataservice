@@ -91,7 +91,7 @@ describe('Utils - RESTAPI - Handlers - Scenarios - findById', () => {
           const response = null;
           mockContext.emit('done', mockBrickname, response);
           sinon.assert.calledWith(res.status, 404);
-          sinon.assert.calledWith(res.send, 'Execution not found.');
+          sinon.assert.calledWith(res.send, `scenario '${req.params.id}' not found.`);
         });
       });
     });
