@@ -7,6 +7,9 @@
 <dt><a href="#DataModel">DataModel</a></dt>
 <dd><p>Based Class for all DataModels</p>
 </dd>
+<dt><a href="#Repository">Repository</a></dt>
+<dd><p>Tests Data Model class</p>
+</dd>
 <dt><a href="#Scenario">Scenario</a></dt>
 <dd><p>Scenario Data Model class</p>
 </dd>
@@ -27,6 +30,9 @@
 ## Constants
 
 <dl>
+<dt><a href="#fields">fields</a></dt>
+<dd><p>Repository Data Model fields</p>
+</dd>
 <dt><a href="#fields">fields</a> : <code>Object</code></dt>
 <dd><p>Scenario Data Model fields</p>
 </dd>
@@ -73,6 +79,21 @@ Convert a string to the DataModel fields type
 | --- | --- |
 | data | The data given to be converted |
 | fields | The DataModel fields |
+
+<a name="Repository"></a>
+
+## Repository
+Tests Data Model class
+
+**Kind**: global class
+<a name="new_Repository_new"></a>
+
+### new Repository(data, autoGenerateId)
+
+| Param | Description |
+| --- | --- |
+| data | The data to create |
+| autoGenerateId |  |
 
 <a name="Scenario"></a>
 
@@ -228,6 +249,18 @@ Handler class for RESTAPI handlers : RESULTS
 | --- | --- | --- |
 | cementHelper | <code>CementHelper</code> | cementHelper from a cta-restapi Brick |
 
+<a name="fields"></a>
+
+## fields
+Repository Data Model fields
+
+**Kind**: global constant
+**Type{{**: id: {type: string},
+name: {type: string},
+type: {type: string},
+url: {type: string},
+mountPoint: {type: string},
+}}
 <a name="fields"></a>
 
 ## fields : <code>Object</code>
