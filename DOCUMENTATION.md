@@ -1,3 +1,6 @@
+# Scenario DataService for Compass Test Automation
+[Readme](README.md) | [Rest API](RESTAPI.md) | [DataModel](DATAMODEL.md) | [DataContract](DATACONTRACT.md) | [Document](DOCUMENTATION.md)
+
 ## Classes
 
 <dl>
@@ -8,7 +11,7 @@
 <dd><p>Scenario Data Model class</p>
 </dd>
 <dt><a href="#RestCRUD">RestCRUD</a></dt>
-<dd><p>Handler class for RESTAPI handlers : RESULTS</p>
+<dd><p>Handler class for RESTAPI handlers</p>
 </dd>
 <dt><a href="#ScenariosHandler">ScenariosHandler</a></dt>
 <dd><p>Handler class for RESTAPI handlers : RESULTS</p>
@@ -28,7 +31,7 @@
 ## DataModel
 Based Class for all DataModels
 
-**Kind**: global class  
+**Kind**: global class
 
 * [DataModel](#DataModel)
     * [new DataModel(data, fields, autoGenerateId)](#new_DataModel_new)
@@ -51,8 +54,8 @@ Crate a DataModel
 ### dataModel.convertDataFields(data, fields) ⇒ <code>Object</code>
 Convert a string to the DataModel fields type
 
-**Kind**: instance method of <code>[DataModel](#DataModel)</code>  
-**Returns**: <code>Object</code> - - The converted Data  
+**Kind**: instance method of <code>[DataModel](#DataModel)</code>
+**Returns**: <code>Object</code> - - The converted Data
 
 | Param | Description |
 | --- | --- |
@@ -64,7 +67,7 @@ Convert a string to the DataModel fields type
 ## Scenario
 Scenario Data Model class
 
-**Kind**: global class  
+**Kind**: global class
 <a name="new_Scenario_new"></a>
 
 ### new Scenario(data, autoGenerateId)
@@ -77,86 +80,98 @@ Scenario Data Model class
 <a name="RestCRUD"></a>
 
 ## RestCRUD
-Handler class for RESTAPI handlers : RESULTS
+Handler class for RESTAPI handlers
 
-**Kind**: global class  
-**Properties**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| cementHelper | <code>CementHelper</code> | cementHelper from a cta-restapi Brick |
-
+**Kind**: global class
 
 * [RestCRUD](#RestCRUD)
-    * [new RestCRUD(cementHelper)](#new_RestCRUD_new)
+    * [new RestCRUD(cementHelper,, dataType,, DataModel,)](#new_RestCRUD_new)
     * [.create(req, res)](#RestCRUD+create)
     * [.update(req, res)](#RestCRUD+update)
     * [.findById(req, res)](#RestCRUD+findById)
     * [.find(req, res, next)](#RestCRUD+find)
+    * [.delete(req, res, next)](#RestCRUD+delete)
 
 <a name="new_RestCRUD_new"></a>
 
-### new RestCRUD(cementHelper)
+### new RestCRUD(cementHelper,, dataType,, DataModel,)
+Create
 
-| Param | Type | Description |
-| --- | --- | --- |
-| cementHelper | <code>CementHelper</code> | cementHelper from a cta-restapi Brick |
+
+| Param | Description |
+| --- | --- |
+| cementHelper, | a cementHelper |
+| dataType, | type of data the handle |
+| DataModel, | a Data Model |
 
 <a name="RestCRUD+create"></a>
 
 ### restCRUD.create(req, res)
-Publishes request body in the create Context
+Publishes request body in create Context
 
-**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>  
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
 
 | Param |
 | --- |
-| req | 
-| res | 
+| req |
+| res |
 
 <a name="RestCRUD+update"></a>
 
 ### restCRUD.update(req, res)
-Publishes request body in the update Context
+Publishes request body in update Context
 
-**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>  
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
 
 | Param |
 | --- |
-| req | 
-| res | 
+| req |
+| res |
 
 <a name="RestCRUD+findById"></a>
 
 ### restCRUD.findById(req, res)
-Publishes request params (Query) id in the findbyid Context
+Publishes request params (Query) id in findbyid Context
 
-**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>  
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
 
 | Param |
 | --- |
-| req | 
-| res | 
+| req |
+| res |
 
 <a name="RestCRUD+find"></a>
 
 ### restCRUD.find(req, res, next)
-Publishes request params (Query) in an execution-find Context
+Publishes request params (Query) in find Context
 
-**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>  
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
 
 | Param |
 | --- |
-| req | 
-| res | 
-| next | 
+| req |
+| res |
+| next |
+
+<a name="RestCRUD+delete"></a>
+
+### restCRUD.delete(req, res, next)
+Publishes request params (Query) id in delete Context
+
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
+
+| Param |
+| --- |
+| req |
+| res |
+| next |
 
 <a name="ScenariosHandler"></a>
 
 ## ScenariosHandler
 Handler class for RESTAPI handlers : RESULTS
 
-**Kind**: global class  
+**Kind**: global class
 **Properties**
 
 | Name | Type | Description |
@@ -176,4 +191,4 @@ Handler class for RESTAPI handlers : RESULTS
 ## fields : <code>Object</code>
 Scenario Data Model fields
 
-**Kind**: global constant  
+**Kind**: global constant
