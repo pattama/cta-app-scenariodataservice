@@ -171,6 +171,8 @@ describe('Utils - RESTAPI - Handlers - Scenarios - create', () => {
         req.method = 'PUT';
         req.body = _.cloneDeep(SCENARIO);
         req.params = {};
+        sinon.spy(res, 'status');
+        sinon.spy(res, 'send');
         data = {
           nature: {
             type: 'scenario',
@@ -187,11 +189,10 @@ describe('Utils - RESTAPI - Handlers - Scenarios - create', () => {
       after(() => {
         handler.cementHelper.createContext.restore();
       });
-      it('should generate an id as string and publish a new Context', () => {
+      it('should send 400 with Missing \'id\' property', () => {
         handler.create(req, res, null);
-        sinon.assert.match(typeof data.payload.id, 'string');
-        sinon.assert.calledWith(handler.cementHelper.createContext, data);
-        sinon.assert.called(mockContext.publish);
+        sinon.assert.calledWith(res.status, 400);
+        sinon.assert.calledWith(res.send, 'Missing \'id\' property');
       });
     });
   });
