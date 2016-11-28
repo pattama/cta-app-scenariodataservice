@@ -4,7 +4,7 @@ const sinon = require('sinon');
 const _ = require('lodash');
 const EventEmitter = require('events');
 
-const Handler = require('../../../../../lib/utils/restapi/handlers/testsuites.js');
+const Handler = require('../../../../../lib/utils/restapi/handlers/tests.js');
 
 const DEFAULTCEMENTHELPER = {
   constructor: {
@@ -15,9 +15,9 @@ const DEFAULTCEMENTHELPER = {
   },
   createContext: () => {},
 };
-const TESTSUITE = require('./testsuites.create.test.data.json');
+const TEST = require('./tests.create.test.data.json');
 
-describe('Utils - RESTAPI - Handlers - Testsuites - create', () => {
+describe('Utils - RESTAPI - Handlers - Tests - create', () => {
   let handler;
   before(() => {
     handler = new Handler(DEFAULTCEMENTHELPER);
@@ -35,10 +35,10 @@ describe('Utils - RESTAPI - Handlers - Testsuites - create', () => {
     before(() => {
       req.method = 'POST';
       req.params = {};
-      req.body = _.cloneDeep(TESTSUITE);
+      req.body = _.cloneDeep(TEST);
       data = {
         nature: {
-          type: 'testsuite',
+          type: 'test',
           quality: 'create',
         },
         payload: req.body,
@@ -132,10 +132,10 @@ describe('Utils - RESTAPI - Handlers - Testsuites - create', () => {
         req.params = {
           id: 'foobar',
         };
-        req.body = _.cloneDeep(TESTSUITE);
+        req.body = _.cloneDeep(TEST);
         data = {
           nature: {
-            type: 'testsuite',
+            type: 'test',
             quality: 'create',
           },
           payload: req.body,
@@ -169,13 +169,13 @@ describe('Utils - RESTAPI - Handlers - Testsuites - create', () => {
       let mockContext;
       before(() => {
         req.method = 'PUT';
-        req.body = _.cloneDeep(TESTSUITE);
+        req.body = _.cloneDeep(TEST);
         req.params = {};
         sinon.spy(res, 'status');
         sinon.spy(res, 'send');
         data = {
           nature: {
-            type: 'testsuite',
+            type: 'test',
             quality: 'create',
           },
           payload: req.body,
