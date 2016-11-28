@@ -1,3 +1,6 @@
+# Scenario DataService for Compass Test Automation
+[Readme](README.md) | [Rest API](RESTAPI.md) | [DataModel](DATAMODEL.md) | [DataContract](DATACONTRACT.md) | [Document](DOCUMENTATION.md)
+
 ## Classes
 
 <dl>
@@ -28,7 +31,7 @@
 ## DataModel
 Based Class for all DataModels
 
-**Kind**: global class  
+**Kind**: global class
 
 * [DataModel](#DataModel)
     * [new DataModel(data, fields, autoGenerateId)](#new_DataModel_new)
@@ -51,8 +54,8 @@ Crate a DataModel
 ### dataModel.convertDataFields(data, fields) ⇒ <code>Object</code>
 Convert a string to the DataModel fields type
 
-**Kind**: instance method of <code>[DataModel](#DataModel)</code>  
-**Returns**: <code>Object</code> - - The converted Data  
+**Kind**: instance method of <code>[DataModel](#DataModel)</code>
+**Returns**: <code>Object</code> - - The converted Data
 
 | Param | Description |
 | --- | --- |
@@ -64,7 +67,7 @@ Convert a string to the DataModel fields type
 ## Scenario
 Scenario Data Model class
 
-**Kind**: global class  
+**Kind**: global class
 <a name="new_Scenario_new"></a>
 
 ### new Scenario(data, autoGenerateId)
@@ -79,7 +82,7 @@ Scenario Data Model class
 ## RestCRUD
 Handler class for RESTAPI handlers : RESULTS
 
-**Kind**: global class  
+**Kind**: global class
 **Properties**
 
 | Name | Type | Description |
@@ -107,56 +110,56 @@ Handler class for RESTAPI handlers : RESULTS
 ### restCRUD.create(req, res)
 Publishes request body in the create Context
 
-**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>  
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
 
 | Param |
 | --- |
-| req | 
-| res | 
+| req |
+| res |
 
 <a name="RestCRUD+update"></a>
 
 ### restCRUD.update(req, res)
 Publishes request body in the update Context
 
-**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>  
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
 
 | Param |
 | --- |
-| req | 
-| res | 
+| req |
+| res |
 
 <a name="RestCRUD+findById"></a>
 
 ### restCRUD.findById(req, res)
 Publishes request params (Query) id in the findbyid Context
 
-**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>  
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
 
 | Param |
 | --- |
-| req | 
-| res | 
+| req |
+| res |
 
 <a name="RestCRUD+find"></a>
 
 ### restCRUD.find(req, res, next)
 Publishes request params (Query) in an execution-find Context
 
-**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>  
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
 
 | Param |
 | --- |
-| req | 
-| res | 
-| next | 
+| req |
+| res |
+| next |
 
 <a name="ScenariosHandler"></a>
 
 ## ScenariosHandler
 Handler class for RESTAPI handlers : RESULTS
 
-**Kind**: global class  
+**Kind**: global class
 **Properties**
 
 | Name | Type | Description |
@@ -176,4 +179,4 @@ Handler class for RESTAPI handlers : RESULTS
 ## fields : <code>Object</code>
 Scenario Data Model fields
 
-**Kind**: global constant  
+**Kind**: global constant
