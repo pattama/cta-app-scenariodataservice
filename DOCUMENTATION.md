@@ -10,6 +10,9 @@
 <dt><a href="#Scenario">Scenario</a></dt>
 <dd><p>Scenario Data Model class</p>
 </dd>
+<dt><a href="#TestSuite">TestSuite</a></dt>
+<dd><p>TestSuite Data Model class</p>
+</dd>
 <dt><a href="#RestCRUD">RestCRUD</a></dt>
 <dd><p>Handler class for RESTAPI handlers</p>
 </dd>
@@ -22,6 +25,9 @@
 
 <dl>
 <dt><a href="#fields">fields</a> : <code>Object</code></dt>
+<dd><p>Scenario Data Model fields</p>
+</dd>
+<dt><a href="#fields">fields</a></dt>
 <dd><p>Scenario Data Model fields</p>
 </dd>
 </dl>
@@ -71,6 +77,21 @@ Scenario Data Model class
 <a name="new_Scenario_new"></a>
 
 ### new Scenario(data, autoGenerateId)
+
+| Param | Description |
+| --- | --- |
+| data | The data to create |
+| autoGenerateId |  |
+
+<a name="TestSuite"></a>
+
+## TestSuite
+TestSuite Data Model class
+
+**Kind**: global class
+<a name="new_TestSuite_new"></a>
+
+### new TestSuite(data, autoGenerateId)
 
 | Param | Description |
 | --- | --- |
@@ -192,3 +213,17 @@ Handler class for RESTAPI handlers : RESULTS
 Scenario Data Model fields
 
 **Kind**: global constant
+<a name="fields"></a>
+
+## fields
+Scenario Data Model fields
+
+**Kind**: global constant
+**Type{{**: id: {type: string},
+name: {type: string},
+tests: {type: array}
+enabled: {type: boolean},
+applicationTested: {type: string},
+inputRepositories: {type: array, optional: boolean},
+outputRepositories: {type: array, optional: boolean},
+}}
