@@ -11,7 +11,7 @@
 <dd><p>Scenario Data Model class</p>
 </dd>
 <dt><a href="#RestCRUD">RestCRUD</a></dt>
-<dd><p>Handler class for RESTAPI handlers : RESULTS</p>
+<dd><p>Handler class for RESTAPI handlers</p>
 </dd>
 <dt><a href="#ScenariosHandler">ScenariosHandler</a></dt>
 <dd><p>Handler class for RESTAPI handlers : RESULTS</p>
@@ -80,35 +80,34 @@ Scenario Data Model class
 <a name="RestCRUD"></a>
 
 ## RestCRUD
-Handler class for RESTAPI handlers : RESULTS
+Handler class for RESTAPI handlers
 
 **Kind**: global class
-**Properties**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| cementHelper | <code>CementHelper</code> | cementHelper from a cta-restapi Brick |
-
 
 * [RestCRUD](#RestCRUD)
-    * [new RestCRUD(cementHelper)](#new_RestCRUD_new)
+    * [new RestCRUD(cementHelper,, dataType,, DataModel,)](#new_RestCRUD_new)
     * [.create(req, res)](#RestCRUD+create)
     * [.update(req, res)](#RestCRUD+update)
     * [.findById(req, res)](#RestCRUD+findById)
     * [.find(req, res, next)](#RestCRUD+find)
+    * [.delete(req, res, next)](#RestCRUD+delete)
 
 <a name="new_RestCRUD_new"></a>
 
-### new RestCRUD(cementHelper)
+### new RestCRUD(cementHelper,, dataType,, DataModel,)
+Create
 
-| Param | Type | Description |
-| --- | --- | --- |
-| cementHelper | <code>CementHelper</code> | cementHelper from a cta-restapi Brick |
+
+| Param | Description |
+| --- | --- |
+| cementHelper, | a cementHelper |
+| dataType, | type of data the handle |
+| DataModel, | a Data Model |
 
 <a name="RestCRUD+create"></a>
 
 ### restCRUD.create(req, res)
-Publishes request body in the create Context
+Publishes request body in create Context
 
 **Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
 
@@ -120,7 +119,7 @@ Publishes request body in the create Context
 <a name="RestCRUD+update"></a>
 
 ### restCRUD.update(req, res)
-Publishes request body in the update Context
+Publishes request body in update Context
 
 **Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
 
@@ -132,7 +131,7 @@ Publishes request body in the update Context
 <a name="RestCRUD+findById"></a>
 
 ### restCRUD.findById(req, res)
-Publishes request params (Query) id in the findbyid Context
+Publishes request params (Query) id in findbyid Context
 
 **Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
 
@@ -144,7 +143,20 @@ Publishes request params (Query) id in the findbyid Context
 <a name="RestCRUD+find"></a>
 
 ### restCRUD.find(req, res, next)
-Publishes request params (Query) in an execution-find Context
+Publishes request params (Query) in find Context
+
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
+
+| Param |
+| --- |
+| req |
+| res |
+| next |
+
+<a name="RestCRUD+delete"></a>
+
+### restCRUD.delete(req, res, next)
+Publishes request params (Query) id in delete Context
 
 **Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
 
