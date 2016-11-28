@@ -2,10 +2,10 @@
 
 const sinon = require('sinon');
 
-const DataModel = require('../../../../../lib/utils/datamodels/testsuites.js');
+const DataModel = require('../../../../../lib/utils/datamodels/tests.js');
 
 
-describe('Utils - datamodels - testsuites', () => {
+describe('Utils - datamodels - tests', () => {
   let datamodel;
   context('when construct the data model', () => {
     context('when data contains id', () => {
@@ -42,7 +42,7 @@ describe('Utils - datamodels - testsuites', () => {
     });
 
     context('when data contains the convertible fields as string', () => {
-      const data = { enabled: 'true', applicationTested: 'tete' };
+      const data = { enabled: 'true', featureTested: 'tete' };
       before(() => {
         datamodel = new DataModel(data, false);
       });

@@ -5,7 +5,7 @@ const sinon = require('sinon');
 const DataModel = require('../../../../../lib/utils/datamodels/scenarios.js');
 
 
-describe('Utils - datamodels - scenario', () => {
+describe('Utils - datamodels - scenarios', () => {
   let datamodel;
   context('when construct the data model', () => {
     context('when data contains id', () => {

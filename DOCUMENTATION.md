@@ -1,6 +1,3 @@
-# Scenario DataService for Compass Test Automation
-[Readme](README.md) | [Rest API](RESTAPI.md) | [DataModel](DATAMODEL.md) | [DataContract](DATACONTRACT.md) | [Document](DOCUMENTATION.md)
-
 ## Classes
 
 <dl>
@@ -9,6 +6,9 @@
 </dd>
 <dt><a href="#Scenario">Scenario</a></dt>
 <dd><p>Scenario Data Model class</p>
+</dd>
+<dt><a href="#Test">Test</a></dt>
+<dd><p>TestSuite Data Model class</p>
 </dd>
 <dt><a href="#TestSuite">TestSuite</a></dt>
 <dd><p>TestSuite Data Model class</p>
@@ -28,6 +28,9 @@
 <dd><p>Scenario Data Model fields</p>
 </dd>
 <dt><a href="#fields">fields</a></dt>
+<dd><p>Test Data Model fields</p>
+</dd>
+<dt><a href="#fields">fields</a></dt>
 <dd><p>Scenario Data Model fields</p>
 </dd>
 </dl>
@@ -37,7 +40,7 @@
 ## DataModel
 Based Class for all DataModels
 
-**Kind**: global class
+**Kind**: global class  
 
 * [DataModel](#DataModel)
     * [new DataModel(data, fields, autoGenerateId)](#new_DataModel_new)
@@ -60,8 +63,8 @@ Crate a DataModel
 ### dataModel.convertDataFields(data, fields) ⇒ <code>Object</code>
 Convert a string to the DataModel fields type
 
-**Kind**: instance method of <code>[DataModel](#DataModel)</code>
-**Returns**: <code>Object</code> - - The converted Data
+**Kind**: instance method of <code>[DataModel](#DataModel)</code>  
+**Returns**: <code>Object</code> - - The converted Data  
 
 | Param | Description |
 | --- | --- |
@@ -73,10 +76,25 @@ Convert a string to the DataModel fields type
 ## Scenario
 Scenario Data Model class
 
-**Kind**: global class
+**Kind**: global class  
 <a name="new_Scenario_new"></a>
 
 ### new Scenario(data, autoGenerateId)
+
+| Param | Description |
+| --- | --- |
+| data | The data to create |
+| autoGenerateId |  |
+
+<a name="Test"></a>
+
+## Test
+TestSuite Data Model class
+
+**Kind**: global class  
+<a name="new_Test_new"></a>
+
+### new Test(data, autoGenerateId)
 
 | Param | Description |
 | --- | --- |
@@ -88,7 +106,7 @@ Scenario Data Model class
 ## TestSuite
 TestSuite Data Model class
 
-**Kind**: global class
+**Kind**: global class  
 <a name="new_TestSuite_new"></a>
 
 ### new TestSuite(data, autoGenerateId)
@@ -103,7 +121,7 @@ TestSuite Data Model class
 ## RestCRUD
 Handler class for RESTAPI handlers
 
-**Kind**: global class
+**Kind**: global class  
 
 * [RestCRUD](#RestCRUD)
     * [new RestCRUD(cementHelper,, dataType,, DataModel,)](#new_RestCRUD_new)
@@ -130,69 +148,69 @@ Create
 ### restCRUD.create(req, res)
 Publishes request body in create Context
 
-**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>  
 
 | Param |
 | --- |
-| req |
-| res |
+| req | 
+| res | 
 
 <a name="RestCRUD+update"></a>
 
 ### restCRUD.update(req, res)
 Publishes request body in update Context
 
-**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>  
 
 | Param |
 | --- |
-| req |
-| res |
+| req | 
+| res | 
 
 <a name="RestCRUD+findById"></a>
 
 ### restCRUD.findById(req, res)
 Publishes request params (Query) id in findbyid Context
 
-**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>  
 
 | Param |
 | --- |
-| req |
-| res |
+| req | 
+| res | 
 
 <a name="RestCRUD+find"></a>
 
 ### restCRUD.find(req, res, next)
 Publishes request params (Query) in find Context
 
-**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>  
 
 | Param |
 | --- |
-| req |
-| res |
-| next |
+| req | 
+| res | 
+| next | 
 
 <a name="RestCRUD+delete"></a>
 
 ### restCRUD.delete(req, res, next)
 Publishes request params (Query) id in delete Context
 
-**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>
+**Kind**: instance method of <code>[RestCRUD](#RestCRUD)</code>  
 
 | Param |
 | --- |
-| req |
-| res |
-| next |
+| req | 
+| res | 
+| next | 
 
 <a name="ScenariosHandler"></a>
 
 ## ScenariosHandler
 Handler class for RESTAPI handlers : RESULTS
 
-**Kind**: global class
+**Kind**: global class  
 **Properties**
 
 | Name | Type | Description |
@@ -212,13 +230,29 @@ Handler class for RESTAPI handlers : RESULTS
 ## fields : <code>Object</code>
 Scenario Data Model fields
 
-**Kind**: global constant
+**Kind**: global constant  
+<a name="fields"></a>
+
+## fields
+Test Data Model fields
+
+**Kind**: global constant  
+**Type{{**: id: {type: string},
+name: {type: string},
+description: {type: string},
+featureTested: {type: string},
+type: {type: string},
+parentTestSuite: {type: string},
+enabled: {type: boolean},
+inputRepositories: {type: array, optional: boolean},
+stages: {type: array},
+}}  
 <a name="fields"></a>
 
 ## fields
 Scenario Data Model fields
 
-**Kind**: global constant
+**Kind**: global constant  
 **Type{{**: id: {type: string},
 name: {type: string},
 tests: {type: array}
@@ -226,4 +260,4 @@ enabled: {type: boolean},
 applicationTested: {type: string},
 inputRepositories: {type: array, optional: boolean},
 outputRepositories: {type: array, optional: boolean},
-}}
+}}  
