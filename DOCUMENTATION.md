@@ -25,6 +25,9 @@
 <dt><a href="#ScenariosHandler">ScenariosHandler</a></dt>
 <dd><p>Handler class for RESTAPI handlers : RESULTS</p>
 </dd>
+<dt><a href="#TestSuitesHandler">TestSuitesHandler</a></dt>
+<dd><p>Handler class for RESTAPI handlers : RESULTS</p>
+</dd>
 </dl>
 
 ## Constants
@@ -244,6 +247,26 @@ Handler class for RESTAPI handlers : RESULTS
 <a name="new_ScenariosHandler_new"></a>
 
 ### new ScenariosHandler(cementHelper)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| cementHelper | <code>CementHelper</code> | cementHelper from a cta-restapi Brick |
+
+<a name="TestSuitesHandler"></a>
+
+## TestSuitesHandler
+Handler class for RESTAPI handlers : RESULTS
+
+**Kind**: global class
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| cementHelper | <code>CementHelper</code> | cementHelper from a cta-restapi Brick |
+
+<a name="new_TestSuitesHandler_new"></a>
+
+### new TestSuitesHandler(cementHelper)
 
 | Param | Type | Description |
 | --- | --- | --- |
