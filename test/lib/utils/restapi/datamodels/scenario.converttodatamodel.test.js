@@ -2,10 +2,10 @@
 
 const sinon = require('sinon');
 
-const DataModel = require('../../../../../lib/utils/datamodels/testsuites.js');
+const DataModel = require('../../../../../lib/utils/datamodels/scenario.js');
 
 
-describe('Utils - datamodels - testsuites', () => {
+describe('Utils - datamodels - scenario', () => {
   let datamodel;
   context('when construct the data model', () => {
     context('when data contains id', () => {
@@ -42,13 +42,17 @@ describe('Utils - datamodels - testsuites', () => {
     });
 
     context('when data contains the convertible fields as string', () => {
-      const data = { enabled: 'true', applicationTested: 'tete' };
+      const data = { scheduled: 'true', pendingtimeout: '15' };
       before(() => {
         datamodel = new DataModel(data, false);
       });
 
       it('should convert string of boolean to boolean', () => {
-        sinon.assert.match(typeof datamodel.enabled, 'boolean');
+        sinon.assert.match(typeof datamodel.scheduled, 'boolean');
+      });
+
+      it('should convert string of number to number', () => {
+        sinon.assert.match(typeof datamodel.pendingtimeout, 'number');
       });
     });
 

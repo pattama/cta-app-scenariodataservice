@@ -11,7 +11,7 @@
 <dd><p>Scenario Data Model class</p>
 </dd>
 <dt><a href="#Test">Test</a></dt>
-<dd><p>TestSuite Data Model class</p>
+<dd><p>Tests Data Model class</p>
 </dd>
 <dt><a href="#TestSuite">TestSuite</a></dt>
 <dd><p>TestSuite Data Model class</p>
@@ -92,7 +92,7 @@ Scenario Data Model class
 <a name="Test"></a>
 
 ## Test
-TestSuite Data Model class
+Tests Data Model class
 
 **Kind**: global class
 <a name="new_Test_new"></a>

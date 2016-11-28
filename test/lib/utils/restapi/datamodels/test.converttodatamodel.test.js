@@ -2,10 +2,10 @@
 
 const sinon = require('sinon');
 
-const DataModel = require('../../../../../lib/utils/datamodels/tests.js');
+const DataModel = require('../../../../../lib/utils/datamodels/test.js');
 
 
-describe('Utils - datamodels - tests', () => {
+describe('Utils - datamodels - test', () => {
   let datamodel;
   context('when construct the data model', () => {
     context('when data contains id', () => {
