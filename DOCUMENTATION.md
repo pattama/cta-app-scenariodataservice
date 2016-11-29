@@ -7,8 +7,17 @@
 <dt><a href="#DataModel">DataModel</a></dt>
 <dd><p>Based Class for all DataModels</p>
 </dd>
+<dt><a href="#Repository">Repository</a></dt>
+<dd><p>Tests Data Model class</p>
+</dd>
 <dt><a href="#Scenario">Scenario</a></dt>
 <dd><p>Scenario Data Model class</p>
+</dd>
+<dt><a href="#Test">Test</a></dt>
+<dd><p>Tests Data Model class</p>
+</dd>
+<dt><a href="#TestSuite">TestSuite</a></dt>
+<dd><p>TestSuite Data Model class</p>
 </dd>
 <dt><a href="#RestCRUD">RestCRUD</a></dt>
 <dd><p>Handler class for RESTAPI handlers</p>
@@ -16,12 +25,27 @@
 <dt><a href="#ScenariosHandler">ScenariosHandler</a></dt>
 <dd><p>Handler class for RESTAPI handlers : RESULTS</p>
 </dd>
+<dt><a href="#TestsHandler">TestsHandler</a></dt>
+<dd><p>Handler class for RESTAPI handlers : RESULTS</p>
+</dd>
+<dt><a href="#TestSuitesHandler">TestSuitesHandler</a></dt>
+<dd><p>Handler class for RESTAPI handlers : RESULTS</p>
+</dd>
 </dl>
 
 ## Constants
 
 <dl>
+<dt><a href="#fields">fields</a></dt>
+<dd><p>Repository Data Model fields</p>
+</dd>
 <dt><a href="#fields">fields</a> : <code>Object</code></dt>
+<dd><p>Scenario Data Model fields</p>
+</dd>
+<dt><a href="#fields">fields</a></dt>
+<dd><p>Test Data Model fields</p>
+</dd>
+<dt><a href="#fields">fields</a></dt>
 <dd><p>Scenario Data Model fields</p>
 </dd>
 </dl>
@@ -62,6 +86,21 @@ Convert a string to the DataModel fields type
 | data | The data given to be converted |
 | fields | The DataModel fields |
 
+<a name="Repository"></a>
+
+## Repository
+Tests Data Model class
+
+**Kind**: global class
+<a name="new_Repository_new"></a>
+
+### new Repository(data, autoGenerateId)
+
+| Param | Description |
+| --- | --- |
+| data | The data to create |
+| autoGenerateId |  |
+
 <a name="Scenario"></a>
 
 ## Scenario
@@ -71,6 +110,36 @@ Scenario Data Model class
 <a name="new_Scenario_new"></a>
 
 ### new Scenario(data, autoGenerateId)
+
+| Param | Description |
+| --- | --- |
+| data | The data to create |
+| autoGenerateId |  |
+
+<a name="Test"></a>
+
+## Test
+Tests Data Model class
+
+**Kind**: global class
+<a name="new_Test_new"></a>
+
+### new Test(data, autoGenerateId)
+
+| Param | Description |
+| --- | --- |
+| data | The data to create |
+| autoGenerateId |  |
+
+<a name="TestSuite"></a>
+
+## TestSuite
+TestSuite Data Model class
+
+**Kind**: global class
+<a name="new_TestSuite_new"></a>
+
+### new TestSuite(data, autoGenerateId)
 
 | Param | Description |
 | --- | --- |
@@ -186,9 +255,91 @@ Handler class for RESTAPI handlers : RESULTS
 | --- | --- | --- |
 | cementHelper | <code>CementHelper</code> | cementHelper from a cta-restapi Brick |
 
+<a name="TestsHandler"></a>
+
+## TestsHandler
+Handler class for RESTAPI handlers : RESULTS
+
+**Kind**: global class
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| cementHelper | <code>CementHelper</code> | cementHelper from a cta-restapi Brick |
+
+<a name="new_TestsHandler_new"></a>
+
+### new TestsHandler(cementHelper)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| cementHelper | <code>CementHelper</code> | cementHelper from a cta-restapi Brick |
+
+<a name="TestSuitesHandler"></a>
+
+## TestSuitesHandler
+Handler class for RESTAPI handlers : RESULTS
+
+**Kind**: global class
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| cementHelper | <code>CementHelper</code> | cementHelper from a cta-restapi Brick |
+
+<a name="new_TestSuitesHandler_new"></a>
+
+### new TestSuitesHandler(cementHelper)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| cementHelper | <code>CementHelper</code> | cementHelper from a cta-restapi Brick |
+
+<a name="fields"></a>
+
+## fields
+Repository Data Model fields
+
+**Kind**: global constant
+**Type{{**: id: {type: string},
+name: {type: string},
+type: {type: string},
+url: {type: string},
+mountPoint: {type: string},
+}}
 <a name="fields"></a>
 
 ## fields : <code>Object</code>
 Scenario Data Model fields
 
 **Kind**: global constant
+<a name="fields"></a>
+
+## fields
+Test Data Model fields
+
+**Kind**: global constant
+**Type{{**: id: {type: string},
+name: {type: string},
+description: {type: string},
+featureTested: {type: string},
+type: {type: string},
+parentTestSuite: {type: string},
+enabled: {type: boolean},
+inputRepositories: {type: array, optional: boolean},
+stages: {type: array},
+}}
+<a name="fields"></a>
+
+## fields
+Scenario Data Model fields
+
+**Kind**: global constant
+**Type{{**: id: {type: string},
+name: {type: string},
+tests: {type: array}
+enabled: {type: boolean},
+applicationTested: {type: string},
+inputRepositories: {type: array, optional: boolean},
+outputRepositories: {type: array, optional: boolean},
+}}
