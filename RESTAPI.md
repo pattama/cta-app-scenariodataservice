@@ -5,37 +5,131 @@
 
 **Rest API**
 
-Create a Scenario
-Request
+* [Create an Scenario](#create-an-scenario)
+* [Find an Scenario by Id](#find-an-scenario-by-id)
+* [Update an Scenario](#update-an-scenario)
+* [Delete an Scenario](#delete-an-scenario)
+* [Cancel an Scenario](#cancel-an-scenario)
 
-- /scenarios
-	- GET : returns all scenarios from current user and his groups
-	    returns
-	     - 200, [scenarios](DATAMODEL.md#Scenario)
-	     - 400, not found
-	     - 401, not found for a user
-	- POST : creates the scenario and returns the updated scenario or 400 if incorrect scenario or 401
-- /scenarios/id
-	- GET : returns the scenario matching this id or 404 if unknown scenario
-	- POST : updates the given scenario or 404 if unknown scenario or 400 if incorrect
-	- DELETE
-- /scenarios/id/execution
-	- POST : runs a scenario
-- /testsuites
-	- GET : returns all testsuites from current user and his groups, if no user then 401
-	- POST : creates the testsuite and returns it or 400 or 401
-- /testsuites/id
-	- GET : retuns the testsuites matching this id or 404 if unknown testsuites
-	- POST : update the testsuites
-	- DELETE
-- /testsuites/id/tests
-	- GET : returns the tests associated with the testsuite id or 404 if unknown testsuites
-	- POST : add a test to the testsuite and returns it or 400 or 401
-- /testsuites/id/tests/id
-	- GET : returns the test matching this id
-	- POST : updates the test matching this id
-	- DELETE
-... and more to follow
+#### Create an [Scenario](DATAMODEL.md)
+**Request**
+```ruby
+POST /scenarios
+{
+  "name" : "foo",
+  "description": "bar",
+  "testSuiteId": "583d40c9f761143530838ca7",
+  "configurationId": "583d40c9f761143530838ca8",
+  "pendingTimeout": 20000,
+  "runningTimeout": 20000
+}
+```
+```ruby
+PUT /scenarios/:id
+{
+  "name" : "foo",
+  "description": "bar",
+  "testSuiteId": "583d40c9f761143530838ca7",
+  "configurationId": "583d40c9f761143530838ca8",
+  "pendingTimeout": 20000,
+  "runningTimeout": 20000
+}
+```
 
+**Response**
+```ruby
+201 Created
+{
+  "id": "581995b77a784529a0f5eadb",
+  "name" : "foo",
+  "description": "bar",
+  "testSuiteId": "583d40c9f761143530838ca7",
+  "configurationId": "583d40c9f761143530838ca8",
+  "pendingTimeout": 20000,
+  "runningTimeout": 20000
+}
+```
+```ruby
+400 Bad Request
+incorrect 'description' in job payload: missing required element
+```
 
+#### Find a Scenario by Id
+**Request**
+```ruby
+GET /scenarios/:id
+```
+**Response**
+```ruby
+200 OK
+{
+  "id": "581995b77a784529a0f5eadb",
+  "name" : "foo",
+  "description": "bar",
+  "testSuiteId": "583d40c9f761143530838ca7",
+  "configurationId": "583d40c9f761143530838ca8",
+  "pendingTimeout": 20000,
+  "runningTimeout": 20000
+}
+```
+```ruby
+404 Not Found
+scenario '583d15189779f63954facfab' not found.
+```
+```ruby
+400 Bad Request
+missing/incorrect 'id' String value of ObjectID in job payload
+```
 
+#### Update an Scenario
+**Request**
+```ruby
+PATCH /scenarios/:id
+{
+  "name" : "foobar",
+}
+```
+**Response**
+```ruby
+200 OK
+{
+  "id": "581995b77a784529a0f5eadb",
+  "name" : "foobar",
+  "description": "bar",
+  "testSuiteId": "583d40c9f761143530838ca7",
+  "configurationId": "583d40c9f761143530838ca8",
+  "pendingTimeout": 20000,
+  "runningTimeout": 20000
+}
+```
+```ruby
+404 Not Found
+scenario '583d15189779f63954facfab' not found.
+```
+```ruby
+400 Bad Request
+incorrect 'name' in job payload: invalid type for value "[object Object]", expected "string"
+```
+
+#### Delete an Scenario
+**Request**
+```ruby
+DELETE /scenarios/:id
+```
+**Response**
+```ruby
+200 OK
+{
+  "id": "581995b77a784529a0f5eadb",
+  "name" : "foo",
+  "description": "bar",
+  "testSuiteId": "583d40c9f761143530838ca7",
+  "configurationId": "583d40c9f761143530838ca8",
+  "pendingTimeout": 20000,
+  "runningTimeout": 20000
+}
+```
+```ruby
+404 Not Found
+scenario '583d15189779f63954facfab' not found.
+```

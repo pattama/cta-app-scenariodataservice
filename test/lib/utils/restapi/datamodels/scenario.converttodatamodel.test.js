@@ -42,7 +42,7 @@ describe('Utils - datamodels - scenario', () => {
     });
 
     context('when data contains the convertible fields as string', () => {
-      const data = { scheduled: 'true', pendingtimeout: '15' };
+      const data = { scheduled: 'true', pendingTimeout: '15' };
       before(() => {
         datamodel = new DataModel(data, false);
       });
@@ -52,7 +52,7 @@ describe('Utils - datamodels - scenario', () => {
       });
 
       it('should convert string of number to number', () => {
-        sinon.assert.match(typeof datamodel.pendingtimeout, 'number');
+        sinon.assert.match(typeof datamodel.pendingTimeout, 'number');
       });
     });
 
