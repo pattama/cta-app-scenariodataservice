@@ -2,31 +2,31 @@
 
 const sinon = require('sinon');
 
-const DataModel = require('../../../../../lib/utils/datamodels/scenario.js');
+const DataModel = require('../../../../../lib/utils/datamodels/configuration.js');
 
 
-describe('Utils - datamodels - scenario', () => {
+describe('Utils - datamodels - cofiguration', () => {
   let datamodel;
   context('when construct the data model', () => {
     context('when data contains id', () => {
-      const data = { id: 'test' };
+      const data = { id: 'cofiguration' };
       before(() => {
         datamodel = new DataModel(data);
       });
 
-      it('should use the passing id', () => {
-        sinon.assert.match(datamodel, data);
+      it('should filter out the passing id', () => {
+        sinon.assert.match('id' in datamodel, false);
       });
     });
 
-    context('when id is missing and use default auto generate id constructor', () => {
+    context('when id is missing auto generate id is suppress', () => {
       const data = { name: 'toto' };
       before(() => {
         datamodel = new DataModel(data);
       });
 
       it('should generate new id', () => {
-        sinon.assert.match('id' in datamodel, true);
+        sinon.assert.match('id' in datamodel, false);
       });
     });
 
@@ -41,28 +41,19 @@ describe('Utils - datamodels - scenario', () => {
       });
     });
 
-    context('when data contains the convertible fields', () => {
-      const data = { scheduled: 'true', pendingTimeout: '15', configuration: { targetMode: 'cloud', toto: 'abc', properties: [{ name: 'super' }] } };
+    context('when data contains the convertible fields as string', () => {
+      const data = { targetMode: 'cloud', toto: 'abc', properties: [{ name: 'super' }] };
       before(() => {
         datamodel = new DataModel(data, false);
       });
 
       it('should convert string of boolean to boolean', () => {
-        sinon.assert.match(typeof datamodel.scheduled, 'boolean');
-      });
-
-      it('should convert string of number to number', () => {
-        sinon.assert.match(typeof datamodel.pendingTimeout, 'number');
-      });
-
-      it('should convert type object with datamodel to datamodel', () => {
-        sinon.assert.match(typeof datamodel.configuration, 'object');
-        sinon.assert.match(typeof datamodel.configuration.targetMode, 'string');
+        sinon.assert.match(typeof datamodel.targetMode, 'string');
       });
 
       it('should maintain type object', () => {
-        sinon.assert.match(Array.isArray(datamodel.configuration.properties), true);
-        sinon.assert.match(typeof datamodel.configuration.properties[0].name, 'string');
+        sinon.assert.match(Array.isArray(datamodel.properties), true);
+        sinon.assert.match(typeof datamodel.properties[0].name, 'string');
       });
     });
 
