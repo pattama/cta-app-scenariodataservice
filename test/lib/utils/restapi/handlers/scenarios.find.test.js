@@ -15,7 +15,7 @@ const DEFAULTCEMENTHELPER = {
   createContext() {},
 };
 
-describe('Utils - RESTAPI - Handlers - Scenarions - find', () => {
+describe('Utils - RESTAPI - Handlers - Scenarios - find', () => {
   let handler;
   before(() => {
     handler = new Handler(DEFAULTCEMENTHELPER);
