@@ -1,0 +1,61 @@
+{
+  "requestTimestamp": null,
+  "scenario": {
+    "id": "57e0e3ff7f256e3368cc4ecb",
+    "name": "a scenario",
+    "description": "test scenario",
+    "scopeTested": "",
+    "pendingTimeout": 3000,
+    "runningTimeout": 3000,
+    "schedule": "*/3 * * * *",
+    "scheduled": true,
+    "testSuite": {
+      "id": "57e0e3ff7f256e3368cc4ecb",
+      "name": "sleep suite",
+      "tests": [
+        {
+          "id": "57e0e3ff7f256e3368cc4ecb",
+          "name": "sleep",
+          "description": "sleeping test",
+          "type": "commandLine",
+          "stages": [
+            {
+              "name": "stage",
+              "run": "echo sleep",
+              "stop": "echo wakeup",
+              "cwd": "",
+              "mandatory": true,
+              "timeout": 3000
+            }
+          ]
+        },
+        {
+          "id": "57e0e3ff7f256e3368cc4ecc",
+          "name": "dream",
+          "description": "dreaming test",
+          "type": "commandLine",
+          "stages": [
+            {
+              "name": "stage",
+              "run": "echo dream",
+              "stop": "echo wakeup",
+              "cwd": "",
+              "mandatory": true,
+              "timeout": 3000
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "configuration": {
+    "id": "57e0e3ff7f256e3368cc4ecb",
+    "name": "u0119273 mono",
+    "targetMode": "normal",
+    "runMode": "mono",
+    "type": "physical",
+    "properties": {
+      "hostname": "u0119273"
+    }
+  }
+}
