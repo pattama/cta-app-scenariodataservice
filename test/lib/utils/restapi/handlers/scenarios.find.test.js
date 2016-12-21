@@ -44,7 +44,7 @@ describe('Utils - RESTAPI - Handlers - Scenarios - find', () => {
 
       data = {
         nature: {
-          type: 'scenario',
+          type: 'scenarios',
           quality: 'find',
         },
         payload: {
@@ -155,7 +155,7 @@ describe('Utils - RESTAPI - Handlers - Scenarios - find', () => {
 
       data = {
         nature: {
-          type: 'scenario',
+          type: 'scenarios',
           quality: 'find',
         },
         payload: {

@@ -38,7 +38,7 @@ describe('Utils - RESTAPI - Handlers - Scenarios - create', () => {
       req.body = _.cloneDeep(SCENARIO);
       data = {
         nature: {
-          type: 'scenario',
+          type: 'scenarios',
           quality: 'create',
         },
         payload: req.body,
@@ -135,7 +135,7 @@ describe('Utils - RESTAPI - Handlers - Scenarios - create', () => {
         req.body = _.cloneDeep(SCENARIO);
         data = {
           nature: {
-            type: 'scenario',
+            type: 'scenarios',
             quality: 'create',
           },
           payload: req.body,
@@ -175,7 +175,7 @@ describe('Utils - RESTAPI - Handlers - Scenarios - create', () => {
         sinon.spy(res, 'send');
         data = {
           nature: {
-            type: 'scenario',
+            type: 'scenarios',
             quality: 'create',
           },
           payload: req.body,
