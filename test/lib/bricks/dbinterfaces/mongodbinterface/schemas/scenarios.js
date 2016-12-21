@@ -8,9 +8,9 @@ const _ = require('lodash');
 const ObjectID = require('bson').ObjectID;
 
 const Model = require(nodepath.join(appRootPath,
-  '/lib/utils/datamodels', 'scenario.js'));
+  '/lib/utils/datamodels', 'scenarios.js'));
 const Schema = require(nodepath.join(appRootPath,
-  '/lib/bricks/dbinterfaces/mongodbinterface/schemas', 'scenario.js'));
+  '/lib/bricks/dbinterfaces/mongodbinterface/schemas', 'scenarios.js'));
 
 
 describe('DatabaseInterfaces - MongoDB - Schema - Scenario', function() {

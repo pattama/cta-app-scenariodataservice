@@ -30,7 +30,7 @@ describe('DatabaseInterfaces - MongoDB - Base - constructor', function() {
     let helper;
     const mockSchemas = new Map();
     const schemasNames = {
-      'scenario.js': 'scenario',
+      'scenarios.js': 'scenario',
     };
     before(function() {
       // stubs all helpers available in the helpers directory
