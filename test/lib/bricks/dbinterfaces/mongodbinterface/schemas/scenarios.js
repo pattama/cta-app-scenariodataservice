@@ -8,9 +8,9 @@ const _ = require('lodash');
 const ObjectID = require('bson').ObjectID;
 
 const Model = require(nodepath.join(appRootPath,
-  '/lib/utils/datamodels', 'scenario.js'));
+  '/lib/utils/datamodels', 'scenarios.js'));
 const Schema = require(nodepath.join(appRootPath,
-  '/lib/bricks/dbinterfaces/mongodbinterface/schemas', 'scenario.js'));
+  '/lib/bricks/dbinterfaces/mongodbinterface/schemas', 'scenarios.js'));
 
 
 describe('DatabaseInterfaces - MongoDB - Schema - Scenario', function() {
@@ -23,7 +23,7 @@ describe('DatabaseInterfaces - MongoDB - Schema - Scenario', function() {
       scheduled: true,
     };
     const ctaObject = new Model(data);
-    it('should return an ExecutionSchema', function() {
+    it('should return an ScenarioSchema', function() {
       const schemaObject = new Schema(ctaObject);
       expect(schemaObject.id).to.not.exist; // eslint-disable-line no-unused-expressions
       expect(schemaObject._id).to.be.an.instanceof(ObjectID);

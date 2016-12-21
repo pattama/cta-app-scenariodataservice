@@ -41,7 +41,7 @@ describe('Utils - RESTAPI - Handlers - scenarios - update', () => {
       };
       data = {
         nature: {
-          type: 'scenario',
+          type: 'scenarios',
           quality: 'update',
         },
         payload: req.body,
@@ -131,7 +131,7 @@ describe('Utils - RESTAPI - Handlers - scenarios - update', () => {
         const response = null;
         mockContext.emit('done', mockBrickname, response);
         sinon.assert.calledWith(res.status, 404);
-        sinon.assert.calledWith(res.send, `scenario '${req.params.id}' not found.`);
+        sinon.assert.calledWith(res.send, `scenarios '${req.params.id}' not found.`);
       });
     });
   });

@@ -2,7 +2,7 @@
 
 const sinon = require('sinon');
 
-const DataModel = require('../../../../../lib/utils/datamodels/scenario.js');
+const DataModel = require('../../../../../lib/utils/datamodels/scenarios.js');
 
 
 describe('Utils - datamodels - scenario', () => {

@@ -37,7 +37,7 @@ describe('Utils - RESTAPI - Handlers - scenarios - delete', () => {
       };
       data = {
         nature: {
-          type: 'scenario',
+          type: 'scenarios',
           quality: 'delete',
         },
         payload: {
@@ -91,7 +91,7 @@ describe('Utils - RESTAPI - Handlers - scenarios - delete', () => {
           const response = null;
           mockContext.emit('done', mockBrickname, response);
           sinon.assert.calledWith(res.status, 404);
-          sinon.assert.calledWith(res.send, 'scenario not found.');
+          sinon.assert.calledWith(res.send, 'scenarios not found.');
         });
       });
     });
