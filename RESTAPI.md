@@ -11,9 +11,9 @@
 * [Delete an Scenario](#delete-an-scenario)
 * [Cancel an Scenario](#cancel-an-scenario)
 
-#### Create an [Scenario](DATAMODEL.md)
+#### Create a [Scenario](DATAMODEL.md)
 **Request**
-```ruby
+```javasript
 POST /scenarios
 {
   "name" : "foo",
@@ -24,7 +24,7 @@ POST /scenarios
   "runningTimeout": 20000
 }
 ```
-```ruby
+```javasript
 PUT /scenarios/:id
 {
   "name" : "foo",
@@ -35,9 +35,8 @@ PUT /scenarios/:id
   "runningTimeout": 20000
 }
 ```
-
 **Response**
-```ruby
+```javasript
 201 Created
 {
   "id": "581995b77a784529a0f5eadb",
@@ -49,18 +48,221 @@ PUT /scenarios/:id
   "runningTimeout": 20000
 }
 ```
-```ruby
+```javasript
 400 Bad Request
 incorrect 'description' in job payload: missing required element
 ```
 
+#### Create a [Scenario] with full body (DATAMODEL.md)
+```javascript
+POST /scenarios
+{
+  "name" : "a scenario",
+  "description" : "test scenario",
+  "scopetested" : "",
+  "pendingTimeout" : 30000.0,
+  "runningTimeout" : 30000.0,
+  "schedule" : "*/3 * * * *",
+  "scheduled" : true,
+  "testSuiteId" : "57e0e3ff7f256e3368cc4ecb",
+  "testSuite" : {
+    "id" : "57e0e3ff7f256e3368cc4ecb",
+    "name" : "sleep suite",
+    "tests" : [
+      {
+        "id" : "57e0e3ff7f256e3368cc4ecb",
+        "name" : "sleep",
+        "description" : "sleeping test",
+        "type" : "commandLine",
+        "stages" : [
+          {
+            "name" : "stage",
+            "run" : "echo sleep",
+            "stop" : "echo wakeup",
+            "cwd" : "",
+            "mandatory" : true,
+            "timeout" : 3000.0
+          }
+        ]
+      },
+      {
+        "id" : "57e0e3ff7f256e3368cc4ecc",
+        "name" : "dream",
+        "description" : "dreaming test",
+        "type" : "commandLine",
+        "stages" : [
+          {
+            "name" : "stage",
+            "run" : "echo dream",
+            "stop" : "echo wakeup",
+            "cwd" : "",
+            "mandatory" : true,
+            "timeout" : 3000.0
+          }]
+      }]
+  },
+  "configurationId" : "57e0e3ff7f256e3368cc4ecb",
+  "configuration" : {
+    "id" : "57e0e3ff7f256e3368cc4ecb",
+    "name" : "myhost mono",
+    "targetMode" : "normal",
+    "runMode" : "mono",
+    "type" : "physical",
+    "properties" : {
+        "hostname" : "myhost"
+    }
+  }
+}
+```
+```javascript
+PUT /scenarios/:id
+{
+  "name" : "a scenario",
+  "description" : "test scenario",
+  "scopetested" : "",
+  "pendingTimeout" : 30000.0,
+  "runningTimeout" : 30000.0,
+  "schedule" : "*/3 * * * *",
+  "scheduled" : true,
+  "testSuiteId" : "57e0e3ff7f256e3368cc4ecb",
+  "testSuite" : {
+    "id" : "57e0e3ff7f256e3368cc4ecb",
+    "name" : "sleep suite",
+    "tests" : [
+      {
+        "id" : "57e0e3ff7f256e3368cc4ecb",
+        "name" : "sleep",
+        "description" : "sleeping test",
+        "type" : "commandLine",
+        "stages" : [
+          {
+            "name" : "stage",
+            "run" : "echo sleep",
+            "stop" : "echo wakeup",
+            "cwd" : "",
+            "mandatory" : true,
+            "timeout" : 3000.0
+          }
+        ]
+      },
+      {
+        "id" : "57e0e3ff7f256e3368cc4ecc",
+        "name" : "dream",
+        "description" : "dreaming test",
+        "type" : "commandLine",
+        "stages" : [
+          {
+            "name" : "stage",
+            "run" : "echo dream",
+            "stop" : "echo wakeup",
+            "cwd" : "",
+            "mandatory" : true,
+            "timeout" : 3000.0
+          }]
+      }]
+  },
+  "configurationId" : "57e0e3ff7f256e3368cc4ecb",
+  "configuration" : {
+    "id" : "57e0e3ff7f256e3368cc4ecb",
+    "name" : "myhost mono",
+    "targetMode" : "normal",
+    "runMode" : "mono",
+    "type" : "physical",
+    "properties" : {
+        "hostname" : "myhost"
+    }
+  }
+}
+```
+Respond
+```javascript
+201: Created
+{
+  "name": "a scenario",
+  "description": "test scenario",
+  "testSuiteId": "57e0e3ff7f256e3368cc4ecb",
+  "testSuite": {
+    "id": "57e0e3ff7f256e3368cc4ecb",
+    "name": "sleep suite",
+    "tests": [
+      {
+        "id": "57e0e3ff7f256e3368cc4ecb",
+        "name": "sleep",
+        "description": "sleeping test",
+        "type": "commandLine",
+        "stages": [
+          {
+            "name": "stage",
+            "run": "echo sleep",
+            "stop": "echo wakeup",
+            "cwd": "",
+            "mandatory": true,
+            "timeout": 3000
+          }
+        ]
+      },
+      {
+        "id": "57e0e3ff7f256e3368cc4ecc",
+        "name": "dream",
+        "description": "dreaming test",
+        "type": "commandLine",
+        "stages": [
+          {
+            "name": "stage",
+            "run": "echo dream",
+            "stop": "echo wakeup",
+            "cwd": "",
+            "mandatory": true,
+            "timeout": 3000
+          }
+        ]
+      }
+    ]
+  },
+  "configuration": {
+    "name": "u0119273 mono",
+    "targetMode": "normal",
+    "runMode": "mono",
+    "type": "physical",
+    "properties": {
+      "hostname": "u0119273"
+    }
+  },
+  "pendingTimeout": 30000,
+  "runningTimeout": 30000,
+  "schedule": "*/3 * * * *",
+  "scheduled": true,
+  "id": "5863454fcdbcf00e0ffba83a"
+}
+```
+```javasript
+400 Bad Request
+incorrect 'description' in job payload: missing required element
+```
+
+#### Run a Scenario by Id
+```javascript
+GET GET /scenarios/:id/run
+```
+**Response**
+```javasript
+200 OK
+{
+  
+}
+
+```javasript
+404 Not Found
+scenario ':id' not found.
+```
+
 #### Find a Scenario by Id
 **Request**
-```ruby
+```javasript
 GET /scenarios/:id
 ```
 **Response**
-```ruby
+```javasript
 200 OK
 {
   "id": "581995b77a784529a0f5eadb",
@@ -72,25 +274,25 @@ GET /scenarios/:id
   "runningTimeout": 20000
 }
 ```
-```ruby
+```javasript
 404 Not Found
 scenario '583d15189779f63954facfab' not found.
 ```
-```ruby
+```javasript
 400 Bad Request
 missing/incorrect 'id' String value of ObjectID in job payload
 ```
 
 #### Update an Scenario
 **Request**
-```ruby
+```javasript
 PATCH /scenarios/:id
 {
   "name" : "foobar",
 }
 ```
 **Response**
-```ruby
+```javasript
 200 OK
 {
   "id": "581995b77a784529a0f5eadb",
@@ -102,22 +304,22 @@ PATCH /scenarios/:id
   "runningTimeout": 20000
 }
 ```
-```ruby
+```javasript
 404 Not Found
 scenario '583d15189779f63954facfab' not found.
 ```
-```ruby
+```javasript
 400 Bad Request
 incorrect 'name' in job payload: invalid type for value "[object Object]", expected "string"
 ```
 
 #### Delete an Scenario
 **Request**
-```ruby
+```javasript
 DELETE /scenarios/:id
 ```
 **Response**
-```ruby
+```javasript
 200 OK
 {
   "id": "581995b77a784529a0f5eadb",
@@ -129,7 +331,7 @@ DELETE /scenarios/:id
   "runningTimeout": 20000
 }
 ```
-```ruby
+```javasript
 404 Not Found
 scenario '583d15189779f63954facfab' not found.
 ```
