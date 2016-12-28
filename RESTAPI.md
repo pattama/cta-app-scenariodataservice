@@ -248,7 +248,92 @@ GET GET /scenarios/:id/run
 ```javasript
 200 OK
 {
-  
+  "result": {
+    "queue": "cta.jms",
+    "messageCount": 0,
+    "consumerCount": 0
+  },
+  "params": {
+    "queue": "cta.jms",
+    "content": {
+      "nature": {
+        "type": "scenarios",
+        "quality": "run"
+      },
+      "payload": {
+        "requestTimestamp": 1482926522126,
+        "scenario": {
+          "name": "a scenario",
+          "description": "test scenario",
+          "testSuiteId": "57e0e3ff7f256e3368cc4ecb",
+          "testSuite": {
+            "id": "57e0e3ff7f256e3368cc4ecb",
+            "name": "sleep suite",
+            "tests": [
+              {
+                "id": "57e0e3ff7f256e3368cc4ecb",
+                "name": "sleep",
+                "description": "sleeping test",
+                "type": "commandLine",
+                "stages": [
+                  {
+                    "name": "stage",
+                    "run": "echo sleep",
+                    "stop": "echo wakeup",
+                    "cwd": "",
+                    "mandatory": true,
+                    "timeout": 3000
+                  }
+                ]
+              },
+              {
+                "id": "57e0e3ff7f256e3368cc4ecc",
+                "name": "dream",
+                "description": "dreaming test",
+                "type": "commandLine",
+                "stages": [
+                  {
+                    "name": "stage",
+                    "run": "echo dream",
+                    "stop": "echo wakeup",
+                    "cwd": "",
+                    "mandatory": true,
+                    "timeout": 3000
+                  }
+                ]
+              }
+            ]
+          },
+          "configuration": {
+            "name": "u0119273 mono",
+            "targetMode": "normal",
+            "runMode": "mono",
+            "type": "physical",
+            "properties": {
+              "hostname": "u0119273"
+            }
+          },
+          "pendingTimeout": 30000,
+          "runningTimeout": 30000,
+          "schedule": "*/3 * * * *",
+          "scheduled": true,
+          "id": "5863a992ae85281de08c45ef"
+        },
+        "configuration": {
+          "name": "u0119273 mono",
+          "targetMode": "normal",
+          "runMode": "mono",
+          "type": "physical",
+          "properties": {
+            "hostname": "u0119273"
+          }
+        }
+      }
+    },
+    "autoDelete": false,
+    "expires": 0,
+    "buffer": "none"
+  }
 }
 
 ```javasript
