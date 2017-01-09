@@ -12,7 +12,8 @@
 + name: String
 + description: String
 + scopetested: String,
-+ testsuiteId: id(TestSuite)
++ testSuiteId: id(TestSuite),
++ testSuite: object(TestSuite),
 + configuration: {
     name: String,
     targetMode: String, i.e.: otf, normal
@@ -33,7 +34,7 @@
 ## TestSuite
 + id: id
 + name: String
-+ tests: [id(Test)]
++ tests: [id(Test), object(Test)]
 + applicationTested: String
 + framework: String
 + enabled : Boolean
