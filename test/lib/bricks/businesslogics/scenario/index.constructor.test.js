@@ -24,9 +24,15 @@ const DEFAULTCEMENTHELPER = {
   dependencies: {
     logger: DEFAULTLOGGER,
   },
+  cement: {
+    configuration: {
+      properties: {
+        uid: '587c9be41466b02983630ff5',
+      },
+    },
+  },
   appProperties: {},
 };
-
 
 describe('BusinessLogics - Execution - constructor', function() {
   context('when everything ok', function() {

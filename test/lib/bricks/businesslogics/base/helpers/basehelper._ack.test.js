@@ -54,7 +54,7 @@ describe('BusinessLogics - Base Helper - _ack', function() {
 
       outputJOB = {
         nature: {
-          type: 'message',
+          type: 'messages',
           quality: 'acknowledge',
         },
         payload: {
