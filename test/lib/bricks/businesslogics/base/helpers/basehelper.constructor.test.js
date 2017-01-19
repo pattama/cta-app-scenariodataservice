@@ -25,9 +25,8 @@ const DEFAULTCEMENTHELPER = {
 };
 const DEFAULTTYPE = 'foobar';
 const DEFAULTAPIURLS = {
-  executionApiUrl: 'http://localhost:3010/',
-  schedulerApiUrl: 'http://localhost:3011/',
-  jobManagerApiUrl: 'http://localhost:3012/',
+  schedulerApiUrl: 'http://localhost:3011/sch/',
+  scenarioApiUrl: 'http://localhost:3005/sds/',
 };
 
 describe('BusinessLogics - Base Helper - constructor', function() {
@@ -78,14 +77,14 @@ describe('BusinessLogics - Base Helper - constructor', function() {
   context('when missing/incorrect executionApiUrl', function() {
     const apiURLS = _.cloneDeep(DEFAULTAPIURLS);
     before(function() {
-      delete apiURLS.executionApiUrl;
+      delete apiURLS.scenarioApiUrl;
     });
 
     it('should throw an Error', function() {
       return expect(function() {
         return new Helper(DEFAULTCEMENTHELPER, DEFAULTLOGGER, DEFAULTTYPE, apiURLS);
       }).to.throw(Error,
-        'missing/incorrect \'executionApiUrl\' string in application global properties');
+        'missing/incorrect \'scenarioApiUrl\' string in application global properties');
     });
   });
 
@@ -100,20 +99,6 @@ describe('BusinessLogics - Base Helper - constructor', function() {
         return new Helper(DEFAULTCEMENTHELPER, DEFAULTLOGGER, DEFAULTTYPE, apiURLS);
       }).to.throw(Error,
         'missing/incorrect \'schedulerApiUrl\' string in application global properties');
-    });
-  });
-
-  context('when missing/incorrect jobManagerApiUrl', function() {
-    const apiURLS = _.cloneDeep(DEFAULTAPIURLS);
-    before(function() {
-      delete apiURLS.jobManagerApiUrl;
-    });
-
-    it('should throw an Error', function() {
-      return expect(function() {
-        return new Helper(DEFAULTCEMENTHELPER, DEFAULTLOGGER, DEFAULTTYPE, apiURLS);
-      }).to.throw(Error,
-        'missing/incorrect \'jobManagerApiUrl\' string in application global properties');
     });
   });
 });

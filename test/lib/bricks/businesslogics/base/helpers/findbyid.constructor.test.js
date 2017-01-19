@@ -25,15 +25,14 @@ const DEFAULTCEMENTHELPER = {
   },
   appProperties: {
     // executionApiUrl: 'http://localhost:3010/',
-    // schedulerApiUrl: 'http://localhost:3011/',
+    // schedulerApiUrl: 'http://localhost:3011/sch/',
     // jobManagerApiUrl: 'http://localhost:3012/',
   },
 };
 const DEFAULTTYPE = 'foobar';
 const DEFAULTAPIURLS = {
-  executionApiUrl: 'http://localhost:3010/',
-  schedulerApiUrl: 'http://localhost:3011/',
-  jobManagerApiUrl: 'http://localhost:3012/',
+  schedulerApiUrl: 'http://localhost:3011/sch/',
+  scenarioApiUrl: 'http://localhost:3005/sds/',
 };
 
 describe('BusinessLogics - Execution - FindById - constructor', function() {
