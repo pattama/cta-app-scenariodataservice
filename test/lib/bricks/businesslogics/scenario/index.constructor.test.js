@@ -31,7 +31,6 @@ const DEFAULTCEMENTHELPER = {
       },
     },
   },
-  appProperties: {},
 };
 
 describe('BusinessLogics - Execution - constructor', function() {

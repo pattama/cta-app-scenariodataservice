@@ -4,9 +4,8 @@ const config = {
   name: 'base-businesslogic',
   module: './bricks/businesslogics/execution/index.js',
   properties: {
-    executionApiUrl: 'http://localhost:3010/',
     schedulerApiUrl: 'http://localhost:3011/sch/',
-    jobManagerApiUrl: 'http://localhost:3012/',
+    scenarioApiUrl: 'http://localhost:3005/sds/',
   },
   publish: [],
   subscribe: [

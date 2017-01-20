@@ -74,7 +74,7 @@ describe('BusinessLogics - Base Helper - constructor', function() {
     });
   });
 
-  context('when missing/incorrect executionApiUrl', function() {
+  context('when missing/incorrect scenarioApiUrl', function() {
     const apiURLS = _.cloneDeep(DEFAULTAPIURLS);
     before(function() {
       delete apiURLS.scenarioApiUrl;

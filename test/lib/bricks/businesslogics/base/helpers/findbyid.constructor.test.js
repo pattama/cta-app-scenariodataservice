@@ -23,11 +23,6 @@ const DEFAULTCEMENTHELPER = {
   dependencies: {
     logger: DEFAULTLOGGER,
   },
-  appProperties: {
-    // executionApiUrl: 'http://localhost:3010/',
-    // schedulerApiUrl: 'http://localhost:3011/sch/',
-    // jobManagerApiUrl: 'http://localhost:3012/',
-  },
 };
 const DEFAULTTYPE = 'foobar';
 const DEFAULTAPIURLS = {
