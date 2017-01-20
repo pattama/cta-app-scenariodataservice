@@ -27,10 +27,10 @@ const DEFAULTCEMENTHELPER = {
 };
 const DEFAULTTYPE = 'foobar';
 const DEFAULTAPIURLS = {
-  executionApiUrl: 'http://localhost:3010/',
-  schedulerApiUrl: 'http://localhost:3011/',
-  jobManagerApiUrl: 'http://localhost:3012/',
+  schedulerApiUrl: 'http://localhost:3011/sch/',
+  scenarioApiUrl: 'http://localhost:3005/sds/',
 };
+
 const SAMPLE = require('./mockdata.testdata.js');
 
 describe('BusinessLogics - Execution - Find - _validate', function() {

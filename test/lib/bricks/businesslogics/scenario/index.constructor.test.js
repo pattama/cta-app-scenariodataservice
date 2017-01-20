@@ -24,9 +24,14 @@ const DEFAULTCEMENTHELPER = {
   dependencies: {
     logger: DEFAULTLOGGER,
   },
-  appProperties: {},
+  cement: {
+    configuration: {
+      properties: {
+        uid: '587c9be41466b02983630ff5',
+      },
+    },
+  },
 };
-
 
 describe('BusinessLogics - Execution - constructor', function() {
   context('when everything ok', function() {
@@ -39,12 +44,17 @@ describe('BusinessLogics - Execution - constructor', function() {
       'findbyid.js': 'findById',
       'update.js': 'update',
     };
-    const specificHelpersCamelCasedNames = {};
+    const scenarioHelpersCamelCasedNames = {
+      'run.js': 'run',
+      'schedule.js': 'scheduled',
+    };
     const mockHelpers = new Map();
     before(function() {
       // stubs required base helpers available in the base/helpers directory
       const baseHelpersDirectory = nodepath.join(appRootPath,
         '/lib/bricks/businesslogics/base/helpers');
+      const scenarioHelpersDirectory = nodepath.join(appRootPath,
+        '/lib/bricks/businesslogics/scenario/helpers');
       Object.keys(baseHelpersCamelCasedNames).forEach(function(helperFileName) {
         mockHelpers.set(helperFileName, {
           MockConstructor: function() {
@@ -59,14 +69,14 @@ describe('BusinessLogics - Execution - constructor', function() {
           mockHelpers.get(helperFileName).MockConstructor);
       });
       // stubs helpers specific to scenario-bl available in the scenario/helpers directory
-      Object.keys(specificHelpersCamelCasedNames).forEach(function(helperFileName) {
+      Object.keys(scenarioHelpersCamelCasedNames).forEach(function(helperFileName) {
         mockHelpers.set(helperFileName, {
           MockConstructor: function() {
             return {
               ok: 1,
             };
           },
-          path: nodepath.join(baseHelpersDirectory, helperFileName),
+          path: nodepath.join(scenarioHelpersDirectory, helperFileName),
         });
         sinon.spy(mockHelpers.get(helperFileName), 'MockConstructor');
         mockrequire(mockHelpers.get(helperFileName).path,
@@ -84,17 +94,15 @@ describe('BusinessLogics - Execution - constructor', function() {
 
     it('should set apiURLs property', function() {
       expect(logic).to.have.property('apiURLs');
-      expect(logic.apiURLs).to.have.property('executionApiUrl',
-        DEFAULTCONFIG.properties.executionApiUrl);
       expect(logic.apiURLs).to.have.property('schedulerApiUrl',
         DEFAULTCONFIG.properties.schedulerApiUrl);
-      expect(logic.apiURLs).to.have.property('jobManagerApiUrl',
-        DEFAULTCONFIG.properties.jobManagerApiUrl);
+      expect(logic.apiURLs).to.have.property('scenarioApiUrl',
+        DEFAULTCONFIG.properties.scenarioApiUrl);
     });
 
     it('should instantiate all available helpers', function() {
       mockHelpers.forEach((value, key) => {
-        const helperName = baseHelpersCamelCasedNames[key];
+        const helperName = baseHelpersCamelCasedNames[key] || scenarioHelpersCamelCasedNames[key];
         sinon.assert.calledWith(value.MockConstructor, logic.cementHelper, logic.logger);
         expect(logic.helpers.has(helperName)).to.equal(true);
         expect(logic.helpers.get(helperName))

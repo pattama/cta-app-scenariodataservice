@@ -34,7 +34,7 @@ describe('DatabaseInterfaces - MongoDB - Find - _process', function() {
     },
     payload: {
       type: 'foobar',
-      filter: {
+      options: {
         limit: 10,
         offset: 0,
         sort: {
@@ -79,9 +79,9 @@ describe('DatabaseInterfaces - MongoDB - Find - _process', function() {
           args: [
             expectedSchemaQuery,
             {
-              limit: inputJOB.payload.filter.limit,
-              skip: inputJOB.payload.filter.offset,
-              sort: inputJOB.payload.filter.sort,
+              limit: inputJOB.payload.options.limit,
+              skip: inputJOB.payload.options.offset,
+              sort: inputJOB.payload.options.sort,
             },
           ],
         },

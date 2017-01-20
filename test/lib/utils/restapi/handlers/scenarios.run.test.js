@@ -11,6 +11,13 @@ const DEFAULTCEMENTHELPER = {
     name: 'CementHelper',
   },
   brickName: 'restapi',
+  cement: {
+    configuration: {
+      properties: {
+        uid: '587c9be41466b02983630ff5',
+      },
+    },
+  },
   createContext() {},
 };
 
@@ -21,6 +28,9 @@ describe('Utils - RESTAPI - Handlers - Scenarios - run', () => {
   });
   context('when everything ok', () => {
     const req = {};
+    const user = {
+      uid: DEFAULTCEMENTHELPER.cement.configuration.properties.uid,
+    };
     const res = {
       status() {
         return this;
@@ -34,7 +44,7 @@ describe('Utils - RESTAPI - Handlers - Scenarios - run', () => {
         id: (new ObjectID()).toString(),
       };
       req.headers = {
-        userId: (new ObjectID()).toString(),
+        uid: user.uid,
         timeStamp: new Date().getTime(),
       };
       data = {
@@ -45,7 +55,7 @@ describe('Utils - RESTAPI - Handlers - Scenarios - run', () => {
         payload: {
           id: req.params.id,
           requestTimestamp: req.headers.timeStamp,
-          userId: req.headers.userId,
+          user,
         },
       };
       mockContext = new EventEmitter();

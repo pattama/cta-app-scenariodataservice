@@ -35,7 +35,7 @@ describe('DatabaseInterfaces - MongoDB - Find - _validate', function() {
     },
     payload: {
       type: 'foobar',
-      filter: {
+      options: {
         limit: 10,
         offset: 0,
       },
@@ -70,47 +70,47 @@ describe('DatabaseInterfaces - MongoDB - Find - _validate', function() {
     });
   });
 
-  context('when payload.filter is not an Object', function() {
+  context('when payload.options is not an Object', function() {
     const job = _.cloneDeep(DEFAULTINPUTJOB);
-    job.payload.filter = '';
+    job.payload.options = '';
     const mockInputContext = new Context(DEFAULTCEMENTHELPER, job);
     it('should reject', function() {
       const validatePromise = helper._validate(mockInputContext);
       return expect(validatePromise).to.eventually
-        .be.rejectedWith(Error, 'missing/incorrect \'filter\' Object in job payload');
+        .be.rejectedWith(Error, 'missing/incorrect \'options\' Object in job payload');
     });
   });
 
-  context('when payload.filter.limit is not a Number', function() {
+  context('when payload.options.limit is not a Number', function() {
     const job = _.cloneDeep(DEFAULTINPUTJOB);
-    job.payload.filter.limit = '';
+    job.payload.options.limit = '';
     const mockInputContext = new Context(DEFAULTCEMENTHELPER, job);
     it('should reject', function() {
       const validatePromise = helper._validate(mockInputContext);
       return expect(validatePromise).to.eventually
-        .be.rejectedWith(Error, 'missing/incorrect \'limit\' Number in job payload.filter');
+        .be.rejectedWith(Error, 'missing/incorrect \'limit\' Number in job payload.options');
     });
   });
 
-  context('when payload.filter.sort is not an Object', function() {
+  context('when payload.options.sort is not an Object', function() {
     const job = _.cloneDeep(DEFAULTINPUTJOB);
-    job.payload.filter.sort = '';
+    job.payload.options.sort = '';
     const mockInputContext = new Context(DEFAULTCEMENTHELPER, job);
     it('should reject', function() {
       const validatePromise = helper._validate(mockInputContext);
       return expect(validatePromise).to.eventually
-        .be.rejectedWith(Error, 'incorrect \'sort\' Object in job payload.filter');
+        .be.rejectedWith(Error, 'incorrect \'sort\' Object in job payload.options');
     });
   });
 
-  context('when payload.filter.offset is not a Number', function() {
+  context('when payload.options.offset is not a Number', function() {
     const job = _.cloneDeep(DEFAULTINPUTJOB);
-    job.payload.filter.offset = '';
+    job.payload.options.offset = '';
     const mockInputContext = new Context(DEFAULTCEMENTHELPER, job);
     it('should reject', function() {
       const validatePromise = helper._validate(mockInputContext);
       return expect(validatePromise).to.eventually
-        .be.rejectedWith(Error, 'missing/incorrect \'offset\' Number in job payload.filter');
+        .be.rejectedWith(Error, 'missing/incorrect \'offset\' Number in job payload.options');
     });
   });
 

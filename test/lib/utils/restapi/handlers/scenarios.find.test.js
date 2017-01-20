@@ -35,7 +35,7 @@ describe('Utils - RESTAPI - Handlers - Scenarios - find', () => {
         name: 'scenarios.find.test.data',
       };
 
-      const defaultFilter = {
+      const options = {
         limit: 20,
         offset: 0,
       };
@@ -48,7 +48,7 @@ describe('Utils - RESTAPI - Handlers - Scenarios - find', () => {
           quality: 'find',
         },
         payload: {
-          filter: defaultFilter,
+          options,
           query,
         },
       };
@@ -142,7 +142,7 @@ describe('Utils - RESTAPI - Handlers - Scenarios - find', () => {
         sort: '-updateTimestamp,name',
         name: 'scenarios.update.test.data',
       };
-      const filter = {
+      const options = {
         limit: parseInt(req.query.limit, 10),
         offset: parseInt(req.query.offset, 0),
         sort: {
@@ -159,7 +159,7 @@ describe('Utils - RESTAPI - Handlers - Scenarios - find', () => {
           quality: 'find',
         },
         payload: {
-          filter,
+          options,
           query,
         },
       };

@@ -24,9 +24,8 @@ const DEFAULTCEMENTHELPER = {
 };
 const DEFAULTTYPE = 'foobar';
 const DEFAULTAPIURLS = {
-  executionApiUrl: 'http://localhost:3010/',
-  schedulerApiUrl: 'http://localhost:3011/',
-  jobManagerApiUrl: 'http://localhost:3012/',
+  schedulerApiUrl: 'http://localhost:3011/sch/',
+  scenarioApiUrl: 'http://localhost:3005/sds/',
 };
 
 describe('BusinessLogics - Base Helper - _ack', function() {
@@ -54,7 +53,7 @@ describe('BusinessLogics - Base Helper - _ack', function() {
 
       outputJOB = {
         nature: {
-          type: 'message',
+          type: 'messages',
           quality: 'acknowledge',
         },
         payload: {
