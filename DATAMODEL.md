@@ -5,6 +5,7 @@
 [Scenario](#Scenario)
 [TestSuite](#TestSuite)
 [Test](#Test)
+[AfterHandler](#AfterHandler)
 [Repository](#Repository)
 <a name=Scenario></a>
 ## Scenario
@@ -28,7 +29,8 @@
 + runningTimeout: Long
 + schedule: String
 + scheduled: Boolean
-+ afterHandlers: [id(AfterHandler)]
++ afterHandlers: [id(AfterHandler), object(AfterHandler)]
+
 
 <a name=TestSuite></a>
 ## TestSuite
@@ -68,13 +70,17 @@
 + tests: [id(Test), object(Test)]
 + applicationTested: String
 + framework: String
-+ enabled : Boolean
++ enabled: Boolean
 + inputRepositories: [id(Repository)]
 + outputRepositories: [id(Repository)]
 
-
-
-
+<a name=AfterHandler></a>
+##AfterHandler
++ id: id
++ name: String
++ type: String
++ url: String
++ enabled: Boolean
 
 <a name=Repository></a>
 ## Repository

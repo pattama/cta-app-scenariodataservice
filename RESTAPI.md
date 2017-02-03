@@ -57,14 +57,13 @@ incorrect 'description' in job payload: missing required element
 ```javascript
 POST /scenarios
 {
-  "name" : "a scenario",
+  "name" : "an oss scenario 1.0.0",
   "description" : "test scenario",
   "scopetested" : "",
-  "pendingTimeout" : 30000.0,
-  "runningTimeout" : 30000.0,
+  "pendingTimeout" : 300000.0,
+  "runningTimeout" : 300000.0,
   "schedule" : "*/3 * * * *",
   "scheduled" : true,
-  "testSuiteId" : "57e0e3ff7f256e3368cc4ecb",
   "testSuite" : {
     "id" : "57e0e3ff7f256e3368cc4ecb",
     "name" : "sleep suite",
@@ -77,11 +76,11 @@ POST /scenarios
         "stages" : [
           {
             "name" : "stage",
-            "run" : "echo sleep",
+            "run" : "echo sleep; sleep 3",
             "stop" : "echo wakeup",
-            "cwd" : "",
+            "cwd" : ".",
             "mandatory" : true,
-            "timeout" : 3000.0
+            "timeout" : 300000
           }
         ]
       },
@@ -95,36 +94,50 @@ POST /scenarios
             "name" : "stage",
             "run" : "echo dream",
             "stop" : "echo wakeup",
-            "cwd" : "",
+            "cwd" : ".",
             "mandatory" : true,
-            "timeout" : 3000.0
-          }]
-      }]
+            "timeout" : 300000
+          }
+        ]
+      }
+    ]
   },
-  "configurationId" : "57e0e3ff7f256e3368cc4ecb",
   "configuration" : {
     "id" : "57e0e3ff7f256e3368cc4ecb",
-    "name" : "myhost mono",
+    "name" : "u0119273 mono",
     "targetMode" : "normal",
     "runMode" : "mono",
     "type" : "physical",
     "properties" : {
-        "hostname" : "myhost"
+      "hostname" : "u0119273"
     }
-  }
+  },
+  "testSuiteId" : "57e0e3ff7f256e3368cc4ecb",
+  "afterHandlers" : [
+    {
+      "id" : "5885f250f7ea75ea00071320",
+      "name" : "nitrus",
+      "type" : "email",
+      "enabled" : true,
+      "properties" : {
+        "emails" : [
+          "cta@thomsonreuters.com"
+        ]
+      }
+    }
+  ]
 }
 ```
 ```javascript
 PUT /scenarios/:id
 {
-  "name" : "a scenario",
+  "name" : "an oss scenario 1.0.0",
   "description" : "test scenario",
   "scopetested" : "",
-  "pendingTimeout" : 30000.0,
-  "runningTimeout" : 30000.0,
+  "pendingTimeout" : 300000.0,
+  "runningTimeout" : 300000.0,
   "schedule" : "*/3 * * * *",
   "scheduled" : true,
-  "testSuiteId" : "57e0e3ff7f256e3368cc4ecb",
   "testSuite" : {
     "id" : "57e0e3ff7f256e3368cc4ecb",
     "name" : "sleep suite",
@@ -137,11 +150,11 @@ PUT /scenarios/:id
         "stages" : [
           {
             "name" : "stage",
-            "run" : "echo sleep",
+            "run" : "echo sleep; sleep 3",
             "stop" : "echo wakeup",
-            "cwd" : "",
+            "cwd" : ".",
             "mandatory" : true,
-            "timeout" : 3000.0
+            "timeout" : 300000
           }
         ]
       },
@@ -155,30 +168,45 @@ PUT /scenarios/:id
             "name" : "stage",
             "run" : "echo dream",
             "stop" : "echo wakeup",
-            "cwd" : "",
+            "cwd" : ".",
             "mandatory" : true,
-            "timeout" : 3000.0
-          }]
-      }]
+            "timeout" : 300000
+          }
+        ]
+      }
+    ]
   },
-  "configurationId" : "57e0e3ff7f256e3368cc4ecb",
   "configuration" : {
     "id" : "57e0e3ff7f256e3368cc4ecb",
-    "name" : "myhost mono",
+    "name" : "u0119273 mono",
     "targetMode" : "normal",
     "runMode" : "mono",
     "type" : "physical",
     "properties" : {
-        "hostname" : "myhost"
+      "hostname" : "u0119273"
     }
-  }
+  },
+  "testSuiteId" : "57e0e3ff7f256e3368cc4ecb",
+  "afterHandlers" : [
+    {
+      "id" : "5885f250f7ea75ea00071320",
+      "name" : "nitrus",
+      "type" : "email",
+      "enabled" : true,
+      "properties" : {
+        "emails" : [
+          "cta@thomsonreuters.com"
+        ]
+      }
+    }
+  ]
 }
 ```
 Respond
 ```javascript
 201: Created
 {
-  "name": "a scenario",
+  "name": "an oss scenario 1.0.0",
   "description": "test scenario",
   "testSuiteId": "57e0e3ff7f256e3368cc4ecb",
   "testSuite": {
@@ -193,11 +221,11 @@ Respond
         "stages": [
           {
             "name": "stage",
-            "run": "echo sleep",
+            "run": "echo sleep; sleep 3",
             "stop": "echo wakeup",
-            "cwd": "",
+            "cwd": ".",
             "mandatory": true,
-            "timeout": 3000
+            "timeout": 300000
           }
         ]
       },
@@ -209,11 +237,11 @@ Respond
         "stages": [
           {
             "name": "stage",
-            "run": "echo dream",
+            "run": "echo dream; open -W -a safari /Users/Shared/yg8DO.gif",
             "stop": "echo wakeup",
-            "cwd": "",
+            "cwd": ".",
             "mandatory": true,
-            "timeout": 3000
+            "timeout": 300000
           }
         ]
       }
@@ -228,11 +256,24 @@ Respond
       "hostname": "u0119273"
     }
   },
-  "pendingTimeout": 30000,
-  "runningTimeout": 30000,
+  "pendingTimeout": 300000,
+  "runningTimeout": 300000,
   "schedule": "*/3 * * * *",
   "scheduled": true,
-  "id": "5863454fcdbcf00e0ffba83a"
+  "afterHandlers": [
+    {
+      "id": "5885f250f7ea75ea00071320",
+      "name": "nitrus",
+      "type": "email",
+      "enabled": true,
+      "properties": {
+        "emails": [
+          "phuttha.kusolkumbot@thomsonreuters.com"
+        ]
+      }
+    }
+  ],
+  "id": "5848e4e4f6523cbab4d2d4e9"
 }
 ```
 ```javasript
@@ -251,7 +292,7 @@ GET GET /scenarios/:id/run
   "result": {
     "queue": "cta.jms",
     "messageCount": 0,
-    "consumerCount": 0
+    "consumerCount": 1
   },
   "params": {
     "queue": "cta.jms",
@@ -261,9 +302,9 @@ GET GET /scenarios/:id/run
         "quality": "run"
       },
       "payload": {
-        "requestTimestamp": 1482926522126,
+        "requestTimestamp": 1486128475746,
         "scenario": {
-          "name": "a scenario",
+          "name": "an oss scenario 1.0.0",
           "description": "test scenario",
           "testSuiteId": "57e0e3ff7f256e3368cc4ecb",
           "testSuite": {
@@ -278,11 +319,11 @@ GET GET /scenarios/:id/run
                 "stages": [
                   {
                     "name": "stage",
-                    "run": "echo sleep",
+                    "run": "echo sleep; sleep 3",
                     "stop": "echo wakeup",
-                    "cwd": "",
+                    "cwd": ".",
                     "mandatory": true,
-                    "timeout": 3000
+                    "timeout": 300000
                   }
                 ]
               },
@@ -294,11 +335,11 @@ GET GET /scenarios/:id/run
                 "stages": [
                   {
                     "name": "stage",
-                    "run": "echo dream",
+                    "run": "echo dream; open -W -a safari /Users/Shared/yg8DO.gif",
                     "stop": "echo wakeup",
-                    "cwd": "",
+                    "cwd": ".",
                     "mandatory": true,
-                    "timeout": 3000
+                    "timeout": 300000
                   }
                 ]
               }
@@ -313,11 +354,24 @@ GET GET /scenarios/:id/run
               "hostname": "u0119273"
             }
           },
-          "pendingTimeout": 30000,
-          "runningTimeout": 30000,
+          "pendingTimeout": 300000,
+          "runningTimeout": 300000,
           "schedule": "*/3 * * * *",
           "scheduled": true,
-          "id": "5863a992ae85281de08c45ef"
+          "afterHandlers": [
+            {
+              "id": "5885f250f7ea75ea00071320",
+              "name": "nitrus",
+              "type": "email",
+              "enabled": true,
+              "properties": {
+                "emails": [
+                  "phuttha.kusolkumbot@thomsonreuters.com"
+                ]
+              }
+            }
+          ],
+          "id": "5848e4e4f6523cbab4d2d4e9"
         },
         "configuration": {
           "name": "u0119273 mono",
@@ -327,6 +381,11 @@ GET GET /scenarios/:id/run
           "properties": {
             "hostname": "u0119273"
           }
+        },
+        "user": {
+          "uid": "587c9be41466b02983630ff5",
+          "id": "587c9be41466b02983630ff5",
+          "last": "u0119273"
         }
       }
     },
