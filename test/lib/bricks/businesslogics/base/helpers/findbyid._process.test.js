@@ -31,7 +31,7 @@ const DEFAULTAPIURLS = {
 
 const SAMPLE = require('./mockdata.testdata.js');
 
-describe('BusinessLogics - Execution - FindById - _process', function() {
+describe('BusinessLogics - Scenario - FindById - _process', function() {
   let helper;
   context('when everything ok', function() {
     const inputJOB = {

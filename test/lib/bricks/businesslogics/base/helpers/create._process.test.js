@@ -30,7 +30,7 @@ const DEFAULTAPIURLS = {
 };
 const SAMPLE = require('./mockdata.testdata.js');
 
-describe('BusinessLogics - Execution - Create - _process', function() {
+describe('BusinessLogics - Scenario - Create - _process', function() {
   let helper;
   context('when everything ok', function() {
     const inputJOB = {

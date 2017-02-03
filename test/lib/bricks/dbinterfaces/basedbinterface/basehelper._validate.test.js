@@ -29,7 +29,7 @@ describe('DatabaseInterfaces - Base Helper - _validate', function() {
   let helper;
   const DEFAULTINPUTJOB = {
     nature: {
-      type: 'execution',
+      type: 'scenarios',
       quality: Helper.name.toLowerCase(),
     },
     payload: {},

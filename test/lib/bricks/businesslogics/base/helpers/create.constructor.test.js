@@ -30,7 +30,7 @@ const DEFAULTAPIURLS = {
   scenarioApiUrl: 'http://localhost:3005/sds/',
 };
 
-describe('BusinessLogics - Execution - Create - constructor', function() {
+describe('BusinessLogics - Scenario - Create - constructor', function() {
   context('when everything ok', function() {
     let helper;
     before(function() {

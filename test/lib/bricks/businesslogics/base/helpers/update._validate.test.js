@@ -33,7 +33,7 @@ const DEFAULTAPIURLS = {
 };
 const SAMPLE = require('./mockdata.testdata.js');
 
-describe('BusinessLogics - Execution - Update - _validate', function() {
+describe('BusinessLogics - Scenario - Update - _validate', function() {
   let helper;
   const mockId = new ObjectID();
   const DEFAULTINPUTJOB = {
