@@ -35,7 +35,7 @@ const DEFAULTAPIURLS = {
 
 const SAMPLE = require('./mockdata.testdata.js');
 
-describe('BusinessLogics - Execution - Create - _validate', function() {
+describe('BusinessLogics - Scenario - Create - _validate', function() {
   let helper;
   const DEFAULTINPUTJOB = {
     nature: {

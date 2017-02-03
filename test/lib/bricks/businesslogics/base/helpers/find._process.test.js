@@ -29,7 +29,7 @@ const DEFAULTAPIURLS = {
 };
 const SAMPLE = require('./mockdata.testdata.js');
 
-describe('BusinessLogics - Execution - Find - _process', function() {
+describe('BusinessLogics - Scenario - Find - _process', function() {
   let helper;
   const mockDataModel = (function() {
     function Foobar() {

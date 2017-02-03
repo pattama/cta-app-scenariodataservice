@@ -31,7 +31,7 @@ const DEFAULTAPIURLS = {
   scenarioApiUrl: 'http://localhost:3005/sds/',
 };
 
-describe('BusinessLogics - Execution - Delete - _validate', function() {
+describe('BusinessLogics - Scenario - Delete - _validate', function() {
   let helper;
   const mockId = new ObjectID();
   const DEFAULTINPUTJOB = {

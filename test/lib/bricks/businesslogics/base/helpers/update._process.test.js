@@ -32,7 +32,7 @@ const DEFAULTAPIURLS = {
 
 const SAMPLE = require('./mockdata.testdata.js');
 
-describe('BusinessLogics - Execution - FindById - _process', function() {
+describe('BusinessLogics - Scenario - Update - _process', function() {
   let helper;
   context('when everything ok', function() {
     const inputJOB = {
@@ -78,11 +78,13 @@ describe('BusinessLogics - Execution - FindById - _process', function() {
       updateContext = new Context(DEFAULTCEMENTHELPER, updateJob);
       updateContext.publish = sinon.stub();
 
+
       sinon.stub(helper.cementHelper, 'createContext')
         .withArgs(updateJob)
         .returns(updateContext);
       helper._process(mockInputContext);
     });
+
     after(function() {
       helper.cementHelper.createContext.restore();
     });
@@ -94,6 +96,28 @@ describe('BusinessLogics - Execution - FindById - _process', function() {
 
     context('when updateContext emits done event', function() {
       before(function() {
+        let action = 'unschedule';
+        if (inputJOB.payload.scheduled) {
+          action = 'schedule';
+        }
+        const updateSchedule = {
+          nature: {
+            type: DEFAULTTYPE,
+            quality: 'schedule',
+          },
+          payload: {
+            action,
+            id: inputJOB.payload.id,
+            schedule: inputJOB.payload.schedule,
+          },
+        };
+        helper.cementHelper.createContext.restore();
+        const scheduleContext = new Context(DEFAULTCEMENTHELPER, updateJob);
+        sinon.stub(helper.cementHelper, 'createContext')
+          .withArgs(updateSchedule)
+          .returns(scheduleContext);
+        scheduleContext.publish = sinon.stub();
+
         updateContext.emit('done', 'dblayer', mockData);
       });
 

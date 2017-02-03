@@ -44,7 +44,7 @@ describe('DatabaseInterfaces - MongoDB - Schema - Scenario', function() {
       runningTimeout: 1000,
       scheduled: true,
     };
-    it('should return an Execution', function() {
+    it('should return an Scenario', function() {
       const object = Schema.toCTAData(mongodbDoc);
       expect(object).to.be.an.instanceof(Model);
       expect(object._id).to.not.exist; // eslint-disable-line no-unused-expressions

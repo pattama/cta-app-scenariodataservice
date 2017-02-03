@@ -61,6 +61,21 @@
     stopTimeout: Int,
     },]
 
+<a name=AfterHandler></a>
+## TestSuite
++ id: id
++ name: String
++ tests: [id(Test), object(Test)]
++ applicationTested: String
++ framework: String
++ enabled : Boolean
++ inputRepositories: [id(Repository)]
++ outputRepositories: [id(Repository)]
+
+
+
+
+
 <a name=Repository></a>
 ## Repository
 + type: String, i.e.: git, svn, s3, local
