@@ -2,7 +2,7 @@
 
 const sinon = require('sinon');
 
-const DataModel = require('../../../../../lib/utils/datamodels/scenario.js');
+const DataModel = require('../../../../../lib/utils/datamodels/scenarios.js');
 
 
 describe('Utils - datamodels - scenario', () => {
@@ -41,8 +41,8 @@ describe('Utils - datamodels - scenario', () => {
       });
     });
 
-    context('when data contains the convertible fields as string', () => {
-      const data = { scheduled: 'true', pendingtimeout: '15' };
+    context('when data contains the convertible fields', () => {
+      const data = { scheduled: 'true', pendingTimeout: '15', configuration: { targetMode: 'cloud', toto: 'abc', properties: [{ name: 'super' }] } };
       before(() => {
         datamodel = new DataModel(data, false);
       });
@@ -52,7 +52,17 @@ describe('Utils - datamodels - scenario', () => {
       });
 
       it('should convert string of number to number', () => {
-        sinon.assert.match(typeof datamodel.pendingtimeout, 'number');
+        sinon.assert.match(typeof datamodel.pendingTimeout, 'number');
+      });
+
+      it('should convert type object with datamodel to datamodel', () => {
+        sinon.assert.match(typeof datamodel.configuration, 'object');
+        sinon.assert.match(typeof datamodel.configuration.targetMode, 'string');
+      });
+
+      it('should maintain type object', () => {
+        sinon.assert.match(Array.isArray(datamodel.configuration.properties), true);
+        sinon.assert.match(typeof datamodel.configuration.properties[0].name, 'string');
       });
     });
 

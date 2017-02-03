@@ -7,7 +7,7 @@
   "scripts": {
     "test": "NODE_PATH=. _mocha",
     "codecoverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
-    "lint": "eslint lib test",
+    "lint": "eslint --quiet lib test",
     "docs": "jsdoc2md \"lib/**/*.js\" > ./docs/DOCUMENTATION.md && jsdoc --readme README.md lib -r -d docs && opener ./docs/index.html"
   },
   "repository": {
@@ -22,10 +22,7 @@
     "chai": "~3.4.0",
     "chai-as-promised": "^5.3.0",
     "eslint": "^3.10.2",
-    "eslint-config-airbnb": "^13.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.7.1",
+    "eslint-config-cta": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/eslint-config-cta.git",
     "istanbul": "~0.4.1",
     "jsdoc": "~3.4.0",
     "jsdoc-to-markdown": "^1.3.6",
@@ -37,18 +34,23 @@
   },
   "dependencies": {
     "cta-brick": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-brick.git",
-    "cta-flowcontrol": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-flowcontrol.git#aggregatedapp-require-fix",
+    "cta-brick-request": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-brick-request.git",
     "cta-common": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-common.git",
-    "cta-logger": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-logger.git",
-    "cta-tool": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-tool.git",
-    "cta-restapi": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-restapi.git#aggregatedapp-require-fix",
-    "cta-expresswrapper": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-expresswrapper.git",
-    "cta-io": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-io.git#brick",
-    "cta-messaging": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-messaging.git",
     "cta-dblayer": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-dblayer.git",
+    "cta-expresswrapper": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-expresswrapper.git",
+    "cta-flowcontrol": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-flowcontrol.git",
+    "cta-healthcheck": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-healthcheck.git",
+    "cta-io": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-io.git#remove-type-messages-check",
+    "cta-logger": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-logger.git",
+    "cta-messaging": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-messaging.git",
+    "cta-restapi": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-restapi.git",
+    "cta-silo": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-silo.git",
+    "cta-tool": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-tool.git",
+    "cta-tool-request": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-tool-request.git",
     "lodash": "^4.14.1",
     "bson": "^0.5.2",
-    "sinon": "^1.17.5"
+    "sinon": "^1.17.5",
+    "co": "^4.6.0"
   },
   "license": "Apache-2.0"
 }

@@ -12,19 +12,29 @@
 + name: String
 + description: String
 + scopetested: String,
-+ testsuiteId: id(TestSuite)
-+ configurationId: id(Configuration)
-+ pendingtimeout: Long
-+ runningtimeout: Long
++ testSuiteId: id(TestSuite),
++ testSuite: object(TestSuite),
++ configuration: {
+    name: String,
+    targetMode: String, i.e.: otf, normal
+    runMode: String, i.e.: mono, group, stress, parallel
+    type: String, i.e.: physical, cloud
+    properties : {
+      `key: value`,
+    },
+    instanceTemplate: id(InstanceTemplate)
+  }
++ pendingTimeout: Long
++ runningTimeout: Long
 + schedule: String
 + scheduled: Boolean
-+ afterhandlers: [id(AfterHandler)]
++ afterHandlers: [id(AfterHandler)]
 
 <a name=TestSuite></a>
 ## TestSuite
 + id: id
 + name: String
-+ tests: [id(Test)]
++ tests: [id(Test), object(Test)]
 + applicationTested: String
 + framework: String
 + enabled : Boolean
@@ -50,6 +60,21 @@
     timeout: Int ,
     stopTimeout: Int,
     },]
+
+<a name=AfterHandler></a>
+## TestSuite
++ id: id
++ name: String
++ tests: [id(Test), object(Test)]
++ applicationTested: String
++ framework: String
++ enabled : Boolean
++ inputRepositories: [id(Repository)]
++ outputRepositories: [id(Repository)]
+
+
+
+
 
 <a name=Repository></a>
 ## Repository

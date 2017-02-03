@@ -15,7 +15,7 @@ const DEFAULTCEMENTHELPER = {
   createContext() {},
 };
 
-describe('Utils - RESTAPI - Handlers - Scenarions - find', () => {
+describe('Utils - RESTAPI - Handlers - Scenarios - find', () => {
   let handler;
   before(() => {
     handler = new Handler(DEFAULTCEMENTHELPER);
@@ -35,7 +35,7 @@ describe('Utils - RESTAPI - Handlers - Scenarions - find', () => {
         name: 'scenarios.find.test.data',
       };
 
-      const defaultFilter = {
+      const options = {
         limit: 20,
         offset: 0,
       };
@@ -44,11 +44,11 @@ describe('Utils - RESTAPI - Handlers - Scenarions - find', () => {
 
       data = {
         nature: {
-          type: 'scenario',
+          type: 'scenarios',
           quality: 'find',
         },
         payload: {
-          filter: defaultFilter,
+          options,
           query,
         },
       };
@@ -142,7 +142,7 @@ describe('Utils - RESTAPI - Handlers - Scenarions - find', () => {
         sort: '-updateTimestamp,name',
         name: 'scenarios.update.test.data',
       };
-      const filter = {
+      const options = {
         limit: parseInt(req.query.limit, 10),
         offset: parseInt(req.query.offset, 0),
         sort: {
@@ -155,11 +155,11 @@ describe('Utils - RESTAPI - Handlers - Scenarions - find', () => {
 
       data = {
         nature: {
-          type: 'scenario',
+          type: 'scenarios',
           quality: 'find',
         },
         payload: {
-          filter,
+          options,
           query,
         },
       };
