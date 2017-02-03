@@ -43,6 +43,9 @@ describe('Utils - RESTAPI - Handlers - Scenarios - run', () => {
       req.params = {
         id: (new ObjectID()).toString(),
       };
+
+      req.query = {};
+
       req.headers = {
         uid: user.uid,
         timeStamp: new Date().getTime(),
