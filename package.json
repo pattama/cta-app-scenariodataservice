@@ -30,7 +30,8 @@
     "mock-require": "^1.3.0",
     "opener": "~1.4.0",
     "require-subvert": "^0.1.0",
-    "sinon-as-promised": "^4.0.2"
+    "sinon-as-promised": "^4.0.2",
+    "sinon": "^1.17.5"
   },
   "dependencies": {
     "cta-brick": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-brick.git",
@@ -39,7 +40,6 @@
     "cta-dblayer": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-dblayer.git",
     "cta-expresswrapper": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-expresswrapper.git",
     "cta-flowcontrol": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-flowcontrol.git",
-    "cta-healthcheck": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-healthcheck.git",
     "cta-io": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-io.git",
     "cta-logger": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-logger.git",
     "cta-messaging": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-messaging.git",
@@ -49,7 +49,6 @@
     "cta-tool-request": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/cta-tool-request.git",
     "lodash": "^4.14.1",
     "bson": "^0.5.2",
-    "sinon": "^1.17.5",
     "co": "^4.6.0"
   },
   "license": "Apache-2.0"
