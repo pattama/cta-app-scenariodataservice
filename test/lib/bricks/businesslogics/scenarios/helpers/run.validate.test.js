@@ -13,7 +13,7 @@ const nodepath = require('path');
 const Logger = require('cta-logger');
 const Context = require('cta-flowcontrol').Context;
 const Helper = require(nodepath.join(appRootPath,
-  '/lib/bricks/businesslogics/scenarios/helpers', 'schedule.js'));
+  '/lib/bricks/businesslogics/scenarios/helpers', 'run.js'));
 
 const DEFAULTCONFIG = require('../index.config.testdata.js');
 const DEFAULTLOGGER = new Logger(null, null, DEFAULTCONFIG.name);
@@ -35,13 +35,12 @@ const DEFAULTCEMENTHELPER = {
 
 
 /**
- * Test schedule in scenarios helper _validation function
+ * Test run in scenarios helper _validation function
  * It should accept a context with
  * id
- * action in ['initial', 'schedule', 'unschedule']
  */
 
-describe('Validate in scenarios schedule helper', () => {
+describe('Validate in scenarios run helper', () => {
   let helper;
   before(() => {
     const dataModelPath = nodepath.join(appRootPath,
@@ -56,10 +55,10 @@ describe('Validate in scenarios schedule helper', () => {
       const initial = {
         nature: {
           type: DEFAULTTYPE,
-          quality: 'schedule',
+          quality: 'run',
         },
         payload: {
-          action: 'initial',
+          id: new ObjectID().toString(),
         },
       };
 
@@ -73,67 +72,17 @@ describe('Validate in scenarios schedule helper', () => {
         return expect(promise).to.eventually.have.property('ok', 1);
       });
     });
-
-
-    context('action is schedule with an id', () => {
-      const schedule = {
-        nature: {
-          type: DEFAULTTYPE,
-          quality: 'schedule',
-        },
-        payload: {
-          action: 'schedule',
-          id: new ObjectID().toString(),
-        },
-      };
-
-      const mockInputContext = new Context(DEFAULTCEMENTHELPER, schedule);
-      let promise;
-      before(() => {
-        promise = helper._validate(mockInputContext);
-      });
-
-      it('should resolve with ok', function() {
-        return expect(promise).to.eventually.have.property('ok', 1);
-      });
-    });
-
   });
 
   context('when payload is invalid', () => {
-    context('when action is incorrect', () => {
-      const foo = {
-        nature: {
-          type: DEFAULTTYPE,
-          quality: 'schedule',
-        },
-        payload: {
-          action: 'foo',
-        },
-      };
-
-      const mockInputContext = new Context(DEFAULTCEMENTHELPER, foo);
-      let promise;
-      before(() => {
-        promise = helper._validate(mockInputContext);
-      });
-
-      it('should reject with error', () => {
-        return expect(promise).to.eventually
-          .be.rejectedWith(Error, `missing/incorrect \'action: ${foo.payload.action}\' in job payload `);
-
-      });
-    });
-
-
     context('when id is missing', () => {
       const foo = {
         nature: {
           type: DEFAULTTYPE,
-          quality: 'schedule',
+          quality: 'run',
         },
         payload: {
-          action: 'schedule',
+          id: null,
         },
       };
 
