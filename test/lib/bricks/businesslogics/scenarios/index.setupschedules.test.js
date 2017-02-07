@@ -43,14 +43,14 @@ describe('BusinessLogics - Schedule - setup schedules', function() {
     let data;
     let mockContext;
     before(() => {
-      // action can be _initial|schedule|unschedule
+      // action can be initial|schedule|unschedule
       data = {
         nature: {
           type: 'scenarios',
           quality: 'schedule',
         },
         payload: {
-          action: '_initial',
+          action: 'initial',
         },
       };
 
