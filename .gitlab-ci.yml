@@ -6,10 +6,6 @@ stages:
   - build
   - deploy
 
-cache:
-  key: "$CI_BUILD_REF"
-  untracked: true
-
 before_script:
   - 'which ssh-agent || ( yum update -y && yum install openssh-client -y )'
   # Run ssh-agent (inside the build environment)
@@ -47,9 +43,13 @@ install_node_modules:
     - ls -la
     - npm install
     - ls -la
-#  artifacts:
-#    paths:
-#    - node_modules/
+  artifacts:
+    paths:
+    - node_modules/
+  cache:
+    key: ${CI_BUILD_REF_NAME}
+    paths:
+      - node_modules/
 
 unit_test:
   stage: test
