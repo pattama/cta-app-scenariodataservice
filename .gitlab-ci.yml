@@ -44,7 +44,9 @@ install_node_modules:
 #    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 #    - npm config set proxy http://webproxy.lon.corp.services:80
 #    - npm config set https-proxy http://webproxy.lon.corp.services:80
+    - ls -la
     - npm install
+    - ls -la
 #  artifacts:
 #    paths:
 #    - node_modules/
@@ -52,16 +54,19 @@ install_node_modules:
 unit_test:
   stage: test
   script:
+    - ls -la
     - npm run test
 
 code_coverage:
   stage: test
   script:
+    - ls -la
     - npm run codecoverage
 
 lint:
   stage: test
   script:
+    - ls -la
     - npm run lint
 
 #docker_build:
