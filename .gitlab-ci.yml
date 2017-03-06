@@ -1,8 +1,9 @@
 image: node:6.9.5
 
 stages:
-  - build
+  - prepare
   - test
+  - build
   - deploy
 
 cache:
@@ -23,11 +24,11 @@ before_script:
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   - npm config set proxy http://webproxy.lon.corp.services:80
   - npm config set https-proxy http://webproxy.lon.corp.services:80
-  - npm install
+#  - npm install
 
-#install_node_modules:
-#  stage: build
-#  script:
+install_node_modules:
+  stage: prepare
+  script:
 #    # (change apt-get to yum if you use a CentOS-based image)
 #    - export
 #    - 'which ssh-agent || ( yum update -y && yum install openssh-client -y )'
@@ -43,7 +44,7 @@ before_script:
 #    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 #    - npm config set proxy http://webproxy.lon.corp.services:80
 #    - npm config set https-proxy http://webproxy.lon.corp.services:80
-#    - npm install
+    - npm install
 #  artifacts:
 #    paths:
 #    - node_modules/
@@ -62,3 +63,8 @@ lint:
   stage: test
   script:
     - npm run lint
+
+#docker_build:
+#  stage: build
+#  script:
+#    -
