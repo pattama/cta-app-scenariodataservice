@@ -1,13 +1,17 @@
 image: node:6.9.5
 
 stages:
-  - build
+  - prepare
   - test
+  - build
   - deploy
 
 cache:
   paths:
     - node_modules/
+
+variables:
+  CONTAINER_IMAGE_TAG: $DOCKER_URL/$DOCKER_REPO/$CI_PROJECT_ID:$CI_BUILD_TAG
 
 before_script:
   - 'which ssh-agent || ( yum update -y && yum install openssh-client -y )'
@@ -48,17 +52,24 @@ before_script:
 #    paths:
 #    - node_modules/
 
-unit_test:
-  stage: test
-  script:
-    - npm run test
+#unit_test:
+#  stage: test
+#  script:
+#    - npm run test
+#
+#code_coverage:
+#  stage: test
+#  script:
+#    - npm run codecoverage
+#
+#lint:
+#  stage: test
+#  script:
+#    - npm run lint
 
-code_coverage:
-  stage: test
+docker_build:
+  stage: build
   script:
-    - npm run codecoverage
-
-lint:
-  stage: test
-  script:
-    - npm run lint
+    - docker login -u $DOCKER_USER -p $DOCKER_TOKEN $DOCKER_URL
+    - docker build --pull -t $CONTAINER_IMAGE_TAG .
+    - docker push $CONTAINER_IMAGE_TAG
