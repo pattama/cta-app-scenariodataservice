@@ -72,7 +72,6 @@ before_script:
 #    - npm run lint
 
 docker_build:
-  image: docker:latest
   stage: build
   script:
     - docker login -u $DOCKER_USER -p $DOCKER_TOKEN $DOCKER_URL
