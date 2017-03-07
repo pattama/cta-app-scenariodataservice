@@ -1,7 +1,7 @@
 image: node:6.9.5
 
-services:
-  - gitlab/dind
+#services:
+#  - gitlab/dind
 
 stages:
   - prepare
