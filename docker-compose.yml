@@ -1,0 +1,20 @@
+version: '2'
+services:
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    ports:
+      - "15672:15672"
+  mongodb:
+    image: "mongo"
+  sch:
+    image: cta-oss/cta-app-schedulerdataservice:compose
+  sds:
+    build: .
+    image: cta-oss/cta-app-scenariodataservice:compose
+    ports:
+      - "3005:3005"
+    depends_on:
+      - rabbitmq
+      - mongodb
+      - sch
+
