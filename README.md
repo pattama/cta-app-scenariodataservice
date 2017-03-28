@@ -19,9 +19,9 @@
 Scenario Data Service (SDS) is a starting brick...
 
 ### Features
-  * Run a scenario
-  * Edit a scenario
-  * Edit a test suites
+  * Scenario Management
+  * Run a scenario 
+  * Edit test suites
 
 
 You can check more [feature guide](https://git.sami.int.thomsonreuters.com/compass/cta/blob/master/features.md) for a list of all features provided by CTA-OSS.
