@@ -1,0 +1,111 @@
+{
+
+  "id": "5848e4e4f6523cbab4d2d4e5",
+  "name": "an oss scenario 1.0.0",
+  "description": "test scenario",
+  "testSuiteId": "57e0e3ff7f256e3368cc4ecb",
+  "testSuite": {
+    "id": "57e0e3ff7f256e3368cc4ecb",
+    "name": "sleep suite",
+    "tests": [
+      {
+        "id": "57e0e3ff7f256e3368cc4ecb",
+        "name": "self test",
+        "description": "self test",
+        "type": "commandLine",
+        "stages": [
+          {
+            "name": "agent",
+            "run": "curl -H \"Content-Type: application/json\" -X POST -d '{\"status\":\"ok\"}' http://localhost:3001/results",
+            "stop": "echo self",
+            "cwd": ".",
+            "mandatory": true,
+            "timeout": 300000
+          }
+        ]
+      },
+      {
+        "id": "57e0e3ff7f256e3368cc4ecc",
+        "name": "dream",
+        "description": "services test",
+        "type": "commandLine",
+        "stages": [
+          {
+            "name": "sds",
+            "run": "res=`curl -I http://sds:3005 2>/dev/null | head -n 1 | cut -d$' ' -f2`; if [ $res -lt 500 ]; then curl -H \"Content-Type: application/json\" -X POST -d '{\"status\":\"ok\"}' http://localhost:3001/results; else curl -H \"Content-Type: application/json\" -X POST -d '{\"status\":\"failed\", \"name\":\"sds\"}' http://localhost:3001/results; fi; body={\"status\":\"$status\"};",
+            "stop": "echo sds",
+            "cwd": ".",
+            "mandatory": true,
+            "timeout": 300000
+          },
+          {
+            "name": "sch",
+            "run": "res=`curl -I http://sch:3011 2>/dev/null | head -n 1 | cut -d$' ' -f2`; if [ $res -lt 500 ]; then curl -H \"Content-Type: application/json\" -X POST -d '{\"status\":\"ok\"}' http://localhost:3001/results; else curl -H \"Content-Type: application/json\" -X POST -d '{\"status\":\"failed\"}' http://localhost:3001/results; fi; body={\"status\":\"$status\"};",
+            "stop": "echo sch",
+            "cwd": ".",
+            "mandatory": true,
+            "timeout": 300000
+          },
+          {
+            "name": "ids",
+            "run": "res=`curl -I http://ids:3000 2>/dev/null | head -n 1 | cut -d$' ' -f2`; if [ $res -lt 500 ]; then curl -H \"Content-Type: application/json\" -X POST -d '{\"status\":\"ok\"}' http://localhost:3001/results; else curl -H \"Content-Type: application/json\" -X POST -d '{\"status\":\"failed\"}' http://localhost:3001/results; fi; body={\"status\":\"$status\"};",
+            "stop": "echo ids",
+            "cwd": ".",
+            "mandatory": true,
+            "timeout": 300000
+          },
+          {
+            "name": "jms",
+            "run": "res=`curl -I http://jms:3012 2>/dev/null | head -n 1 | cut -d$' ' -f2`; if [ $res -lt 500 ]; then curl -H \"Content-Type: application/json\" -X POST -d '{\"status\":\"ok\"}' http://localhost:3001/results; else curl -H \"Content-Type: application/json\" -X POST -d '{\"status\":\"failed\"}' http://localhost:3001/results; fi; body={\"status\":\"$status\"};",
+            "stop": "echo jms",
+            "cwd": ".",
+            "mandatory": true,
+            "timeout": 300000
+          },
+          {
+            "name": "eds",
+            "run": "res=`curl -I http://eds:3010 2>/dev/null | head -n 1 | cut -d$' ' -f2`; if [ $res -lt 500 ]; then curl -H \"Content-Type: application/json\" -X POST -d '{\"status\":\"ok\"}' http://localhost:3001/results; else curl -H \"Content-Type: application/json\" -X POST -d '{\"status\":\"failed\"}' http://localhost:3001/results; fi; body={\"status\":\"$status\"};",
+            "stop": "echo eds",
+            "cwd": ".",
+            "mandatory": true,
+            "timeout": 300000
+          },
+          {
+            "name": "nos",
+            "run": "res=`curl -I http://nos:3006 2>/dev/null | head -n 1 | cut -d$' ' -f2`; if [ $res -lt 500 ]; then curl -H \"Content-Type: application/json\" -X POST -d '{\"status\":\"ok\"}' http://localhost:3001/results; else curl -H \"Content-Type: application/json\" -X POST -d '{\"status\":\"failed\"}' http://localhost:3001/results; fi; body={\"status\":\"$status\"};",
+            "stop": "echo nos",
+            "cwd": ".",
+            "mandatory": true,
+            "timeout": 300000
+          }
+        ]
+      }
+    ]
+  },
+  "configuration": {
+    "name": "u0119273 mono",
+    "targetMode": "normal",
+    "runMode": "mono",
+    "type": "physical",
+    "properties": {
+      "hostname": "agt-docker"
+    }
+  },
+  "pendingTimeout": 300000,
+  "runningTimeout": 300000,
+  "schedule": "*/10 * * * *",
+  "scheduled": false,
+  "afterHandlers": [
+    {
+      "id": "5885f250f7ea75ea00071320",
+      "name": "nitrus",
+      "type": "email",
+      "enabled": true,
+      "properties": {
+        "emails": [
+          "phuttha.kusolkumbot@thomsonreuters.com;stephane.dubon@thomsonreuters.com;kiettisak.angkanawin@thomsonreuters.com"
+        ]
+      }
+    }
+  ]
+}
