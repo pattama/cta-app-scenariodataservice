@@ -51,7 +51,7 @@ describe('BusinessLogics - Scenario - Find - _process', function() {
         quality: 'find',
       },
       payload: {
-        filter: {
+        options: {
           limit: 10,
           offset: 0,
           sort: {
@@ -77,7 +77,7 @@ describe('BusinessLogics - Scenario - Find - _process', function() {
         },
         payload: {
           type: DEFAULTTYPE,
-          filter: inputJOB.payload.filter,
+          options: inputJOB.payload.options,
           query: inputJOB.payload.query,
         },
       };
