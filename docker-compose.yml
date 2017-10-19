@@ -8,6 +8,9 @@ services:
     image: "mongo"
   sch:
     image: cta-oss/cta-app-schedulerdataservice:compose
+    depends_on:
+      - rabbitmq
+      - mongodb
   sds:
     build: .
     image: cta-oss/cta-app-scenariodataservice:compose
