@@ -1,5 +1,7 @@
 # cta-app-scenariodataservice
-[![build status](https://git.sami.int.thomsonreuters.com/compass/cta-app-scenariodataservice/badges/master/build.svg)](https://git.sami.int.thomsonreuters.com/compass/cta-app-scenariodataservice/commits/master)[![coverage report](https://git.sami.int.thomsonreuters.com/compass/cta-app-scenariodataservice/badges/master/coverage.svg)](https://git.sami.int.thomsonreuters.com/compass/cta-app-scenariodataservice/commits/master)
+[![Build Status](https://travis-ci.org/thomsonreuters/cta-app-scenariodataservice.svg?branch=master)](https://travis-ci.org/thomsonreuters/cta-app-scenariodataservice)
+[![Coverage Status](https://coveralls.io/repos/github/thomsonreuters/cta-app-scenariodataservice/badge.svg?branch=master)](https://coveralls.io/github/thomsonreuters/cta-app-scenariodataservice?branch=master)
+[![codecov](https://codecov.io/gh/thomsonreuters/cta-app-scenariodataservice/branch/master/graph/badge.svg)](https://codecov.io/gh/thomsonreuters/cta-app-scenariodataservice)
 
 **Scenario Data Service Application (SDS)**  for Compass Test Automation, implementing CTA-OSS Framework
 
